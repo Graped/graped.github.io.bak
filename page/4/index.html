@@ -53,16 +53,16 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
 
 
 
@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="DInG BloG" type="application/atom+xml" />
+
 
 
 
@@ -82,7 +84,7 @@
 <meta name="description" content="All or nothing, Now or never.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DInG BloG">
-<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:url" content="http://grapedlinux.cn/page/4/index.html">
 <meta property="og:site_name" content="DInG BloG">
 <meta property="og:description" content="All or nothing, Now or never.">
 <meta property="og:locale" content="zh-Hans">
@@ -118,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/4/"/>
+  <link rel="canonical" href="http://grapedlinux.cn/page/4/"/>
 
 
 
@@ -252,12 +254,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031210/">
+    <link itemprop="mainEntityOfPage" href="http://grapedlinux.cn/2017/03/27/17032701/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/10/06/i8xgI0.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -271,7 +273,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/12/17031210/" itemprop="url">nginx 禁止指定 user_agent</a></h1>
+                <a class="post-title-link" href="/2017/03/27/17032701/" itemprop="url">DNS服务及安装配置</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:52:28+08:00">
-                2017-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T02:09:44+08:00">
+                2017-03-27
               </time>
             
 
@@ -294,6 +296,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-Network/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux_Network</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -304,6 +328,24 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
           
 
           
@@ -323,17 +365,12 @@
       
         
           
-          编辑配置文件：
-vim /usr/local/nginx/conf/vhosts/test.conf
-加入
-if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
-        {
-                return 403;
-    
+          DNS介绍DNS 为Domain Name System（域名系统）的缩写，它是一种将ip地址转换成对应的主机名或将主机名转换成与之相对应ip地址的一种服务机制。 
+其中通过域名解析出ip地址的叫做正向解析，通过ip地址解析出域名的叫做反向解析。 DNS使用TCP和UDP, 端口号都是53, 但它主
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/17031210/#more" rel="contents">
+            <a class="btn" href="/2017/03/27/17032701/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -344,6 +381,10 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
     
     
     
+	
+	<div>
+  	
+	</div>
 
     
 
@@ -384,12 +425,12 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031209/">
+    <link itemprop="mainEntityOfPage" href="http://grapedlinux.cn/2017/03/23/17032304/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/10/06/i8xgI0.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -403,7 +444,7 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/12/17031209/" itemprop="url">nginx 配置防盗链</a></h1>
+                <a class="post-title-link" href="/2017/03/23/17032304/" itemprop="url">使用mysql-proxy 快速实现mysql 集群 读写分离</a></h1>
         
 
         <div class="post-meta">
@@ -415,8 +456,8 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:51:52+08:00">
-                2017-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-23T18:08:04+08:00">
+                2017-03-23
               </time>
             
 
@@ -437,6 +478,24 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
           
 
           
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
 
           
 
@@ -455,15 +514,12 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
       
         
           
-          编辑配置文件：vim /usr/local/nginx/conf/vhosts/test.conf
-加入：location ~ .*.(gif|jpg|jped|png|bmp|swf|flv|rar|zip|gz|bz2)$
-{
-        access_log off;
-        ex
+          使用mysql-proxy 快速实现mysql 集群 读写分离目前较为常见的mysql读写分离分为两种：
+基于程序代码内部实现：在代码中对select操作分发到从库；其它操作由主库执行；这类方法也是目前生产环境应用最广泛，知名的如DISCUZ X2。优点是性能较好，因为在程序代码中实现，不需要增加额
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/17031209/#more" rel="contents">
+            <a class="btn" href="/2017/03/23/17032304/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -474,6 +530,10 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
     
     
     
+	
+	<div>
+  	
+	</div>
 
     
 
@@ -514,12 +574,12 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031208/">
+    <link itemprop="mainEntityOfPage" href="http://grapedlinux.cn/2017/03/23/17032303/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/10/06/i8xgI0.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -533,7 +593,7 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/12/17031208/" itemprop="url">nginx 配置静态文件过期时间</a></h1>
+                <a class="post-title-link" href="/2017/03/23/17032303/" itemprop="url">查看mysql主从复制延迟和数据中断--带脚本</a></h1>
         
 
         <div class="post-meta">
@@ -545,8 +605,8 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:51:15+08:00">
-                2017-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-23T18:07:14+08:00">
+                2017-03-23
               </time>
             
 
@@ -567,6 +627,24 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
           
 
           
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
 
           
 
@@ -585,15 +663,13 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
       
         
           
-          编辑配置文件：vim /usr/local/nginx/conf/vhosts/test.conf
-加入：    location ~ .*.(gif|jpg|jped|png|bmp|swf)$
-    {
-            access_log off;
-            expir
+          查看mySQL延迟的方法，查看了多个案例，大家众说纷纭，意见差不多一致。如下也是我参考别人经验做的一些测试，希望能检测到mysql复制延迟、数据中断。
+方法一、查看Seconds_Behind_Master该参数有如下值：
+NULL  表示io_thread或sql_thread有一个发生故障，就是
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/17031208/#more" rel="contents">
+            <a class="btn" href="/2017/03/23/17032303/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -604,6 +680,10 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
     
     
     
+	
+	<div>
+  	
+	</div>
 
     
 
@@ -644,12 +724,12 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031207/">
+    <link itemprop="mainEntityOfPage" href="http://grapedlinux.cn/2017/03/23/17032302/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/10/06/i8xgI0.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -663,7 +743,7 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/12/17031207/" itemprop="url">nginx日志切割</a></h1>
+                <a class="post-title-link" href="/2017/03/23/17032302/" itemprop="url">XtraBackup不停机不锁表搭建MySQL主从同步实践</a></h1>
         
 
         <div class="post-meta">
@@ -675,8 +755,8 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:49:05+08:00">
-                2017-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-23T17:39:01+08:00">
+                2017-03-23
               </time>
             
 
@@ -697,6 +777,24 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
           
 
           
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
 
           
 
@@ -715,12 +813,12 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
       
         
           
-          一、写一个nginx日志切割脚本vim /usr/local/sbin/nginx_logrotate.sh
-#!/bin/bashd=date -d &quot;-1 day&quot; +%Y%m%d[ -d /tmp/nginx_log ] || mkdir /tmp/nginx_logmv 
+          
+前言Percona XtraBackup可以说是一个相对完美的免费开源数据备份工具，支持在线无锁表同步复制和可并行高效率的安全备份恢复机制相比mysqldump来说确实让人眼前一亮，与MySQL Enterprise Backup(InnoDB Hot Backup)的功能对比可以参考扩展阅读。当
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/17031207/#more" rel="contents">
+            <a class="btn" href="/2017/03/23/17032302/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -731,6 +829,10 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
     
     
     
+	
+	<div>
+  	
+	</div>
 
     
 
@@ -771,12 +873,12 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031206/">
+    <link itemprop="mainEntityOfPage" href="http://grapedlinux.cn/2017/03/23/17032301/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/10/06/i8xgI0.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -790,7 +892,7 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/03/12/17031206/" itemprop="url">nginx 不记录指定文件类型的日志</a></h1>
+                <a class="post-title-link" href="/2017/03/23/17032301/" itemprop="url">mysql主从配置</a></h1>
         
 
         <div class="post-meta">
@@ -802,8 +904,8 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:48:23+08:00">
-                2017-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-23T00:40:53+08:00">
+                2017-03-23
               </time>
             
 
@@ -824,258 +926,23 @@ if ($http_user_agent ~ &apos;curl|baidu|111111&apos;)
           
 
           
+            <div class="post-wordcount">
+              
 
-          
+              
 
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          一、日志格式在nginx.conf 中定义日志格式，配置如下：log_format main ‘$remote_addr - $remote_user [$time_local] $request ‘                    ‘“$status” $body_bytes_sent “$
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/17031206/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031205/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Graped">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DInG BloG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
                 
-                <a class="post-title-link" href="/2017/03/12/17031205/" itemprop="url">nginx域名跳转</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:46:14+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          编辑配置文件，修改为：
-server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if ($host != ‘www.test.com&#39;)    {    rewrite ^/(.)$ http
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/17031205/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031204/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Graped">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DInG BloG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <a class="post-title-link" href="/2017/03/12/17031204/" itemprop="url">nginx 用户认证</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+                <span title="阅读时长">
+                  8
+                </span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:45:32+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
+            </div>
           
 
           
@@ -1095,11 +962,12 @@ server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if
       
         
           
-          在nginx虚拟主机中添加：location ~ .*admin.php$ {        auth_basic    “grapedlinux auth”;        auth_basic_user_file /usr/local/nginx/conf/.htpasswd;        i
+          MySQL Replication 又叫做AB复制或者主从复制。它主要用于MySQL的时时备份或者读写分离。在配置之前先做一下准备工作，配置两台mysql服务器，或者在一台服务器上配置两个端口也可以。这里的的实验中就是在一台服务器上跑了两个mysql。
+原理：MySQL的Replication是一个
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/17031204/#more" rel="contents">
+            <a class="btn" href="/2017/03/23/17032301/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1110,388 +978,10 @@ server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if
     
     
     
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031203/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Graped">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DInG BloG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/12/17031203/" itemprop="url">常见的 502 问题解决</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:38:51+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          对于LNMP来说，最常见的就是502问题了，配置完环境后，一访问网站直接提示“502 Bad GateWay”。出现502的最大原因大致分为这两种。
-一、配置错误。location ~ .php$ {  root           html;  fastcgi_pass   127.0.0.1:9
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/17031203/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031202/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Graped">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DInG BloG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/12/17031202/" itemprop="url">测试PHP解析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:33:22+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            ● 配置nginx配置文件      ○ vim  /usr/local/nginx/conf/nginx.conf
-  ● 取消下列各行的注释，并修改     SCRIPT_FILENAME/usr/local/nginx/html$fastcgi_script_name      ○ loc
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/17031202/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031201/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Graped">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DInG BloG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/12/17031201/" itemprop="url">Nginx编译安装</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:31:48+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            ● 下载nginx      ○ cd /usr/locar/src      ○ wget http://nginx.org/download/nginx-1.8.0.tar.gz
-  ● 解压      ○ tar zxvf nginx-1.8.0.tar.gz
-  ● 编译配置参数    
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/17031201/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
+	
+	<div>
+  	
+	</div>
 
     
 
@@ -1523,7 +1013,7 @@ server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1559,7 +1049,7 @@ server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar.gif"
+                src="https://s1.ax1x.com/2018/10/06/i8xgI0.jpg"
                 alt="Graped" />
             
               <p class="site-author-name" itemprop="name">Graped</p>
@@ -1604,7 +1094,42 @@ server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if
           </nav>
 
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Graped" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:graped@aliyun.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/graped" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.instagram.com/graped_ding" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -1639,6 +1164,15 @@ server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if
   <span class="author" itemprop="copyrightHolder">Graped</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">44.5k</span>
+  
 </div>
 
 
@@ -1655,6 +1189,10 @@ server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if
 
 
 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共44.5k字</span>
+</div>
         
 
 
@@ -1697,6 +1235,8 @@ server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if
   
 
 
+  
+
 
 
 
@@ -1735,6 +1275,11 @@ server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -1820,5 +1365,9 @@ server{    listen 80;    server_name www.test.com www.aaa.com www.bbb.com;    if
 
   
 
+
+  
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
 </body>
 </html>
