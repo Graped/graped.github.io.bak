@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="FTP是File Transfer Protocol（文件传输协议）的英文简称，而中文简称为 “文传协议” 用于Internet上的控制文件的双向传输。同时，它也是一个应用程序（Application）。用户可以通过它把自己的PC机与世界各地所有运行FTP协议的服务器相连，访问服务器上的大量程序和信息。FTP的主要作用，就是让用户连接上一个远程计算机（这些计算机上运行着FTP服务器程序）查看远程计">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pureftp 部署和优化">
+<meta property="og:url" content="http://yoursite.com/2017/03/20/17032002/index.html">
+<meta property="og:site_name" content="DInG BloG">
+<meta property="og:description" content="FTP是File Transfer Protocol（文件传输协议）的英文简称，而中文简称为 “文传协议” 用于Internet上的控制文件的双向传输。同时，它也是一个应用程序（Application）。用户可以通过它把自己的PC机与世界各地所有运行FTP协议的服务器相连，访问服务器上的大量程序和信息。FTP的主要作用，就是让用户连接上一个远程计算机（这些计算机上运行着FTP服务器程序）查看远程计">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://i.imgur.com/zN0Y7SV.jpg">
+<meta property="og:updated_time" content="2017-03-21T03:01:48.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pureftp 部署和优化">
+<meta name="twitter:description" content="FTP是File Transfer Protocol（文件传输协议）的英文简称，而中文简称为 “文传协议” 用于Internet上的控制文件的双向传输。同时，它也是一个应用程序（Application）。用户可以通过它把自己的PC机与世界各地所有运行FTP协议的服务器相连，访问服务器上的大量程序和信息。FTP的主要作用，就是让用户连接上一个远程计算机（这些计算机上运行着FTP服务器程序）查看远程计">
+<meta name="twitter:image" content="http://i.imgur.com/zN0Y7SV.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/20/17032002/"/>
+
+
+
+
+
+  <title>pureftp 部署和优化 | DInG BloG</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DInG BloG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">静以致远</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/17032002/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Graped">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DInG BloG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">pureftp 部署和优化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T20:22:46+08:00">
+                2017-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>FTP是File Transfer Protocol（文件传输协议）的英文简称，而中文简称为 “文传协议” 用于Internet上的控制文件的双向传输。同时，它也是一个应用程序（Application）。用户可以通过它把自己的PC机与世界各地所有运行FTP协议的服务器相连，访问服务器上的大量程序和信息。FTP的主要作用，就是让用户连接上一个远程计算机（这些计算机上运行着FTP服务器程序）查看远程计算机有哪些文件，然后把文件从远程计算机上拷到本地计算机，或把本地计算机的文件送到远程计算机去。FTP用的比NFS更多，所以请你一定要熟练配置它。</p>
+<h4 id="安装pure-ftpd"><a href="#安装pure-ftpd" class="headerlink" title="安装pure-ftpd"></a>安装pure-ftpd</h4><p>在CentOS或者RedHat Linux上有自带的ftp软件叫做vsftp,这里使用pure-ftpd搭建ftp服务器，因为这个软件比vsftp配置起来更加灵活和安全。</p>
+<h5 id="1-下载软件"><a href="#1-下载软件" class="headerlink" title="1. 下载软件"></a>1. 下载软件</h5><p>pure-ftpd 官网是 <a href="http://www.pureftpd.org/project/pure-ftpd" target="_blank" rel="noopener">http://www.pureftpd.org/project/pure-ftpd</a>。</p>
+<h5 id="2-安装软件"><a href="#2-安装软件" class="headerlink" title="2. 安装软件"></a>2. 安装软件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/</span><br><span class="line">tar jxf pure-ftpd-1.0.42.tar.bz2 #解压缩</span><br><span class="line">cd pure-ftpd-1.0.42</span><br><span class="line"></span><br><span class="line">./configure \</span><br><span class="line">--prefix=/usr/local/pureftpd \</span><br><span class="line">--without-inetd \</span><br><span class="line">--with-altlog \</span><br><span class="line">--with-puredb \</span><br><span class="line">--with-throttling \</span><br><span class="line">--with-peruserlimits  \</span><br><span class="line">--with-tls</span><br><span class="line">#编译</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h4 id="配置pure-ftpd"><a href="#配置pure-ftpd" class="headerlink" title="配置pure-ftpd"></a>配置pure-ftpd</h4><h5 id="1-修改配置文件"><a href="#1-修改配置文件" class="headerlink" title="1. 修改配置文件"></a>1. 修改配置文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd configuration-file</span><br><span class="line">mkdir -p /usr/local/pureftpd/etc/</span><br><span class="line">cp pure-ftpd.conf    /usr/local/pureftpd/etc/pure-ftpd.conf</span><br><span class="line">cp pure-config.pl    /usr/local/pureftpd/sbin/pure-config.pl</span><br><span class="line">chmod 755    /usr/local/pureftpd/sbin/pure-config.pl</span><br></pre></td></tr></table></figure>
+<p>把配置文件修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ChrootEveryone              yes</span><br><span class="line">BrokenClientsCompatibility  no</span><br><span class="line">MaxClientsNumber            50</span><br><span class="line">Daemonize                   yes</span><br><span class="line">MaxClientsPerIP             8</span><br><span class="line">VerboseLog                  no</span><br><span class="line">DisplayDotFiles             yes</span><br><span class="line">AnonymousOnly               no</span><br><span class="line">NoAnonymous                 no</span><br><span class="line">SyslogFacility              ftp</span><br><span class="line">DontResolve                 yes</span><br><span class="line">MaxIdleTime                 15</span><br><span class="line">PureDB                      /usr/local/pureftpd/etc/pureftpd.pdb</span><br><span class="line">LimitRecursion              3136 8</span><br><span class="line">AnonymousCanCreateDirs      no</span><br><span class="line">MaxLoad                     4</span><br><span class="line">AntiWarez                   yes</span><br><span class="line">Umask                       133:022</span><br><span class="line">MinUID                      100</span><br><span class="line">AllowUserFXP                no</span><br><span class="line">AllowAnonymousFXP           no</span><br><span class="line">ProhibitDotFilesWrite       no</span><br><span class="line">ProhibitDotFilesRead        no</span><br><span class="line">AutoRename                  no</span><br><span class="line">AnonymousCantUpload         no</span><br><span class="line">PIDFile                     /usr/local/pureftpd/var/run/pure-ftpd.pid</span><br><span class="line">MaxDiskUsage                99</span><br><span class="line">CustomerProof               yes</span><br></pre></td></tr></table></figure>
+<h5 id="2-启动pure-ftpd"><a href="#2-启动pure-ftpd" class="headerlink" title="2. 启动pure-ftpd"></a>2. 启动pure-ftpd</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/pureftpd/sbin/pure-config.pl /usr/local/pureftpd/etc/pure-ftpd.conf</span><br></pre></td></tr></table></figure>
+<p>如果是启动成功，会出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Running: /usr/local/pureftpd/sbin/pure-ftpd -A -c50 -B -C8 -D -fftp -H -I15 -lpuredb:/usr/local/pureftpd/etc/pureftpd.pdb -L3136:8 -m4 -s -U133:022 -u100 -g/usr/local/pureftpd/var/run/pure-ftpd.pid -k99 -Z</span><br></pre></td></tr></table></figure>
+<p>如果失败需要重启的话,可以使用下面的命令来实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">killall purerf-ftpd</span><br><span class="line">/usr/local/pureftpd/sbin/pure-config.pl /usr/local/pureftpd/etc/pure-ftpd.conf</span><br></pre></td></tr></table></figure>
+<h5 id="3-建立账号"><a href="#3-建立账号" class="headerlink" title="3. 建立账号"></a>3. 建立账号</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir /tmp/ftp</span><br><span class="line">useradd user3</span><br><span class="line">chown -R user3 /tmp/ftp</span><br><span class="line">/usr/local/pureftpd/bin/pure-pw useradd ftp_user1  -uuser3 -d /tmp/ftp</span><br><span class="line">Password:</span><br><span class="line">Enter it again:</span><br></pre></td></tr></table></figure>
+<p>其中，-u将虚拟用户ftp_user1与系统用户uesr3关联在一起，也就是说使用ftp_user1账号登陆ftp后，会以uesr3的身份来读取文件或下载文件。-d后边的目录为ftp_user1账户的家目录，这样可以使ftp_user1只能访问其家目录/tmp/ftp.到这里还未完成，还有最关键的一步，就是创建用户信息数据库文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/pureftpd/bin/pure-pw mkdb</span><br></pre></td></tr></table></figure>
+<p>pure-pw还可以列出当前的ftp账号，当然也可以删除某个账号, 我们再创建一个账号:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/pureftpd/bin/pure-pw  useradd ftp_user2 -uuser3 -d /tmp/ftp</span><br><span class="line">/usr/local/pureftpd/bin/pure-pw mkdb</span><br></pre></td></tr></table></figure>
+<p>列出当前账号:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/pureftpd/bin/pure-pw list</span><br></pre></td></tr></table></figure>
+<p>删除账号的命令为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/pureftpd/bin/pure-pw  userdel ftp_user2</span><br></pre></td></tr></table></figure>
+<h5 id="4-测试pure-ftpd"><a href="#4-测试pure-ftpd" class="headerlink" title="4. 测试pure-ftpd"></a>4. 测试pure-ftpd</h5><p>测试需要使用的工具叫做lftp, 先安装一下它:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y lftp</span><br></pre></td></tr></table></figure>
+<p>测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">lftp ftpuser1@192.168.189.131</span><br><span class="line">口令: </span><br><span class="line">lftp ftpuser1@192.168.189.131:~&gt; ls       </span><br><span class="line">drwxr-xr-x    2 504        0                4096 Mar 20 19:57 .</span><br><span class="line">drwxr-xr-x    2 504        0                4096 Mar 20 19:57 ..</span><br><span class="line">-rw-r--r--    1 0          0                   0 Mar 20 19:57 1.txt</span><br><span class="line">-rw-r--r--    1 0          0                   0 Mar 20 19:57 2.txt</span><br><span class="line">-rw-r--r--    1 0          0                   0 Mar 20 19:57 3</span><br></pre></td></tr></table></figure>
+<p>注意：在登录lftp后可以使用的命令与在shell中是不一样的，通过？可以查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">lftp ftpuser1@192.168.189.131:~&gt; ?        </span><br><span class="line">    !&lt;shell-command&gt;                     (commands)                           alias [&lt;name&gt; [&lt;value&gt;]]             bookmark [SUBCMD]</span><br><span class="line">    cache [SUBCMD]                       cat [-b] &lt;files&gt;                     cd &lt;rdir&gt;                            chmod [OPTS] mode file...</span><br><span class="line">    close [-a]                           [re]cls [opts] [path/][pattern]      debug [&lt;level&gt;|off] [-o &lt;file&gt;]      du [options] &lt;dirs&gt;</span><br><span class="line">    exit [&lt;code&gt;|bg]                     get [OPTS] &lt;rfile&gt; [-o &lt;lfile&gt;]      glob [OPTS] &lt;cmd&gt; &lt;args&gt;             help [&lt;cmd&gt;]</span><br><span class="line">    history -w file|-r file|-c|-l [cnt]  jobs [-v]                            kill all|&lt;job_no&gt;                    lcd &lt;ldir&gt;</span><br><span class="line">    lftp [OPTS] &lt;site&gt;                   ls [&lt;args&gt;]                          mget [OPTS] &lt;files&gt;                  mirror [OPTS] [remote [local]]</span><br><span class="line">    mkdir [-p] &lt;dirs&gt;                    module name [args]                   more &lt;files&gt;                         mput [OPTS] &lt;files&gt;</span><br><span class="line">    mrm &lt;files&gt;                          mv &lt;file1&gt; &lt;file2&gt;                   [re]nlist [&lt;args&gt;]                   open [OPTS] &lt;site&gt;</span><br><span class="line">    pget [OPTS] &lt;rfile&gt; [-o &lt;lfile&gt;]     put [OPTS] &lt;lfile&gt; [-o &lt;rfile&gt;]      pwd [-p]                             queue [OPTS] [&lt;cmd&gt;]</span><br><span class="line">    quote &lt;cmd&gt;                          repeat [OPTS] [delay] [command]      rm [-r] [-f] &lt;files&gt;                 rmdir [-f] &lt;dirs&gt;</span><br><span class="line">    scache [&lt;session_no&gt;]                set [OPT] [&lt;var&gt; [&lt;val&gt;]]            site &lt;site_cmd&gt;                      source &lt;file&gt;</span><br><span class="line">    torrent [-O &lt;dir&gt;] &lt;file&gt;            user &lt;user|URL&gt; [&lt;pass&gt;]             version                              wait [&lt;jobno&gt;]</span><br><span class="line">    zcat &lt;files&gt;                         zmore &lt;files&gt;</span><br></pre></td></tr></table></figure>
+<p>下载文件使用get命令，会自动下载到当前目录；上传当前目录的文件可以用put命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lftp ftpuser1@192.168.189.131:/&gt; get a.txt </span><br><span class="line">101 bytes transferred</span><br><span class="line"></span><br><span class="line">lftp ftpuser1@192.168.189.131:~&gt; put graped.1 </span><br><span class="line">35 bytes transferred</span><br></pre></td></tr></table></figure>
+<p>在linux下还有一个测试工具是ftp，也需要通过yum安装。在windows可以使用filezilla软件测试。<br><img src="http://i.imgur.com/zN0Y7SV.jpg" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Graped
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2017/03/20/17032002/" title="pureftp 部署和优化">http://yoursite.com/2017/03/20/17032002/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/20/17032001/" rel="next" title="NFS部署和优化">
+                <i class="fa fa-chevron-left"></i> NFS部署和优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/21/17032101/" rel="prev" title="vftp 部署和优化">
+                vftp 部署和优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Graped</p>
+              <p class="site-description motion-element" itemprop="description">All or nothing, Now or never.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装pure-ftpd"><span class="nav-number">1.</span> <span class="nav-text">安装pure-ftpd</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-下载软件"><span class="nav-number">1.1.</span> <span class="nav-text">1. 下载软件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-安装软件"><span class="nav-number">1.2.</span> <span class="nav-text">2. 安装软件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置pure-ftpd"><span class="nav-number">2.</span> <span class="nav-text">配置pure-ftpd</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-修改配置文件"><span class="nav-number">2.1.</span> <span class="nav-text">1. 修改配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-启动pure-ftpd"><span class="nav-number">2.2.</span> <span class="nav-text">2. 启动pure-ftpd</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-建立账号"><span class="nav-number">2.3.</span> <span class="nav-text">3. 建立账号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-测试pure-ftpd"><span class="nav-number">2.4.</span> <span class="nav-text">4. 测试pure-ftpd</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Graped</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

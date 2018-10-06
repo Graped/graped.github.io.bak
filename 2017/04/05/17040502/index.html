@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Hadoop内容官网：http://hadoop.apache.org/#What+Is+Apache+Hadoop%3F Hadoop内容较复杂，安装根据不同的需求有三种模式独立模式（standalong/local model ）：无需任何守护进程，所有程序都单个的JVM上执行。本模式适用于开发阶段下的测试和调式MapReduce。伪分布（pesudo-distributed model）：H">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop伪分布式安装">
+<meta property="og:url" content="http://yoursite.com/2017/04/05/17040502/index.html">
+<meta property="og:site_name" content="DInG BloG">
+<meta property="og:description" content="Hadoop内容官网：http://hadoop.apache.org/#What+Is+Apache+Hadoop%3F Hadoop内容较复杂，安装根据不同的需求有三种模式独立模式（standalong/local model ）：无需任何守护进程，所有程序都单个的JVM上执行。本模式适用于开发阶段下的测试和调式MapReduce。伪分布（pesudo-distributed model）：H">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ask.apelearn.com/uploads/questions/20130929/145421x1hhs0fkgx00u11g.png">
+<meta property="og:updated_time" content="2017-04-05T16:40:22.603Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hadoop伪分布式安装">
+<meta name="twitter:description" content="Hadoop内容官网：http://hadoop.apache.org/#What+Is+Apache+Hadoop%3F Hadoop内容较复杂，安装根据不同的需求有三种模式独立模式（standalong/local model ）：无需任何守护进程，所有程序都单个的JVM上执行。本模式适用于开发阶段下的测试和调式MapReduce。伪分布（pesudo-distributed model）：H">
+<meta name="twitter:image" content="http://ask.apelearn.com/uploads/questions/20130929/145421x1hhs0fkgx00u11g.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/05/17040502/"/>
+
+
+
+
+
+  <title>Hadoop伪分布式安装 | DInG BloG</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DInG BloG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">静以致远</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/05/17040502/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Graped">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DInG BloG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hadoop伪分布式安装</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-05T23:46:19+08:00">
+                2017-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hadoop/" itemprop="url" rel="index">
+                    <span itemprop="name">hadoop</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Hadoop内容<br>官网：<a href="http://hadoop.apache.org/#What+Is+Apache+Hadoop%3F" target="_blank" rel="noopener">http://hadoop.apache.org/#What+Is+Apache+Hadoop%3F</a></p>
+<p>Hadoop内容较复杂，安装根据不同的需求有三种模式<br>独立模式（standalong/local model ）：无需任何守护进程，所有程序都单个的JVM上执行。本模式适用于开发阶段下的测试和调式MapReduce。<br>伪分布（pesudo-distributed model）：Hadoop守护进程都运行在本地服务器上，模拟一个小规模的集群<br>全分布(full distributed model)：Hadoop 守护进程运行在一个集群上。</p>
+<p>先安装伪分布式进行结合测试</p>
+<h4 id="1-安装前准备："><a href="#1-安装前准备：" class="headerlink" title="1. 安装前准备："></a>1. 安装前准备：</h4><ol>
+<li>JDK1.6.X</li>
+<li>SSH</li>
+<li>RSYNC</li>
+</ol>
+<h4 id="2-下载hadoop文件之后解压到目录-直接解压后设定为Hadoop目录即可"><a href="#2-下载hadoop文件之后解压到目录-直接解压后设定为Hadoop目录即可" class="headerlink" title="2. 下载hadoop文件之后解压到目录,直接解压后设定为Hadoop目录即可"></a>2. 下载hadoop文件之后解压到目录,直接解压后设定为Hadoop目录即可</h4><p>在环境变量中添加JAVA目录与Hadoop目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PATH=$PATH:$HOME/bin</span><br><span class="line">#export PATH</span><br><span class="line">export JAVA_HOME=/usr/local/java/jdk1.6.0_30</span><br><span class="line">export PATH=$JAVA_HOME/bin:/usr/local/mysql/bin:$PATH</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">unset USERNAME</span><br><span class="line">export HADOOP_INSTALL=/usr/local/hadoop</span><br><span class="line">export PATH=$PATH:$HADOOP_INSTALL/bin</span><br></pre></td></tr></table></figure></p>
+<p>执行hadoop version 查看hadoop版本，且查看是否运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@test /] hadoop version</span><br><span class="line">Hadoop 1.2.1</span><br><span class="line">Subversion https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152</span><br><span class="line">Compiled by mattf on Mon Jul 22 15:23:09 PDT 2013</span><br><span class="line">From source with checksum 6923c86528809c4e7e6f493b6b413a9a</span><br><span class="line">This command was run using /usr/local/hadoop/hadoop-core-1.2.1.jar</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-配置SSH"><a href="#3-配置SSH" class="headerlink" title="3. 配置SSH"></a>3. 配置SSH</h4><p>首先要能ssh登录到本机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost</span><br></pre></td></tr></table></figure>
+<p>如果无法登录，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@zabbix hadoop] ssh-keygen  -t dsa -P &apos;&apos; -f ~/.ssh/id_sea</span><br><span class="line">[root@zabbix hadoop] cat ~/.ssh/id_dsa.pub &amp;gt;&amp;gt;~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-格式化HDFS文件系统"><a href="#4-格式化HDFS文件系统" class="headerlink" title="4. 格式化HDFS文件系统"></a>4. 格式化HDFS文件系统</h4><p>使用Hadoop前，必须格式化一个全新的HDFS系统 ，创建一个空的文件系统。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop namenode -frmat</span><br></pre></td></tr></table></figure></p>
+<h4 id="5-Hadoop配置文件"><a href="#5-Hadoop配置文件" class="headerlink" title="5. Hadoop配置文件"></a>5. Hadoop配置文件</h4><p>conf目录中<br>core-site.xml 配置Common组件<br>hdfs-site.xml 配置HDFS属性<br>mapred-site.xml 配置MapReduce属性<br>默认情况下，三种模式的默认配置如图<br><img src="http://ask.apelearn.com/uploads/questions/20130929/145421x1hhs0fkgx00u11g.png" alt="image"></p>
+<p>修改配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/core-site.xml</span><br><span class="line">fs.default.namehdfs://localhost/</span><br><span class="line">//hdfs-site.xml</span><br><span class="line">dfs.replication1</span><br><span class="line">//mapred-site.xml</span><br><span class="line">mapred.job.trackerlocalhost:8021</span><br></pre></td></tr></table></figure></p>
+<h4 id="6-启动HDFS和MapReduce守护进程"><a href="#6-启动HDFS和MapReduce守护进程" class="headerlink" title="6. 启动HDFS和MapReduce守护进程"></a>6. 启动HDFS和MapReduce守护进程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@test conf] start-dfs.sh</span><br><span class="line">starting namenode, logging to /usr/local/hadoop/libexec/../logs/hadoop-root-namenode-zabbix.out</span><br><span class="line">localhost: starting datanode, logging to /usr/local/hadoop/libexec/../logs/hadoop-root-datanode-zabbix.out</span><br><span class="line">localhost: starting secondarynamenode, logging to /usr/local/hadoop/libexec/../logs/hadoop-root-secondarynamenode-zabbix.out</span><br><span class="line">[root@test conf]  start-mapred.sh</span><br><span class="line">starting jobtracker, logging to /usr/local/hadoop/libexec/../logs/hadoop-root-jobtracker-zabbix.out</span><br><span class="line">localhost: starting tasktracker, logging to /usr/local/hadoop/libexec/../logs/hadoop-root-tasktracker-zabbix.out</span><br></pre></td></tr></table></figure>
+<h4 id="7-查看进程是否启动"><a href="#7-查看进程是否启动" class="headerlink" title="7. 查看进程是否启动"></a>7. 查看进程是否启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">http://namenode:50030/jobtracker.jsp</span><br><span class="line">http://namenode:50070/dfshealth.jsp</span><br><span class="line">[root@test conf]# netstat -lnp |grep 50030</span><br><span class="line">tcp        0      0 :::50030                    :::*                        LISTEN      3071/java           </span><br><span class="line">[root@test conf]# netstat -lnp |grep 50070</span><br><span class="line">tcp        0      0 :::50070               :::*                        LISTEN      2676/java</span><br></pre></td></tr></table></figure>
+<p>JAVA的jps查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br><span class="line">3220 TaskTracker</span><br><span class="line">2676 NameNode</span><br><span class="line">3071 JobTracker</span><br><span class="line">2803 DataNode</span><br><span class="line">2962 SecondaryNameNode</span><br><span class="line">3503 Jps</span><br></pre></td></tr></table></figure></p>
+<p><strong>Hadoop常用命令</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">//查看HDFS文件列表</span><br><span class="line">hadoop fs -ls /usr/local/log/</span><br><span class="line">//创建文件目录</span><br><span class="line">hadoop fs -mkdir /usr/local/log/test</span><br><span class="line">//删除文件</span><br><span class="line">/hadoop fs -rm /usr/local/log/11</span><br><span class="line">//上传一个本机文件到HDFS中/usr/local/log/目录下</span><br><span class="line">adoop fs -put /usr/local/src/infobright-4.0.6-0-x86_64-ice.rpm  /usr/local/log/</span><br><span class="line">//下载</span><br><span class="line">hadoop fs –get /usr/local/log/infobright-4.0.6-0-x86_64-ice.rpm   /usr/local/src/</span><br><span class="line">//查看文件</span><br><span class="line">hadoop fs -cat /usr/local/log/20131008_10/access.log.zabbix</span><br><span class="line">//查看HDFS基本使用情况</span><br><span class="line">[root@hh ~] hadoop dfsadmin -report</span><br><span class="line">Configured Capacity: 10397683712 (9.68 GB)</span><br><span class="line">Present Capacity: 9388027904 (8.74 GB)</span><br><span class="line">DFS Remaining: 9324613632 (8.68 GB)</span><br><span class="line">DFS Used: 63414272 (60.48 MB)                                 </span><br><span class="line">DFS Used%: 0.68%</span><br><span class="line">Under replicated blocks: 1</span><br><span class="line">Blocks with corrupt replicas: 0</span><br><span class="line">Missing blocks: 1</span><br><span class="line">-------------------------------------------------</span><br><span class="line">Datanodes available: 1 (1 total, 0 dead)</span><br><span class="line">Name: 127.0.0.1:50010</span><br><span class="line">Decommission Status : Normal</span><br><span class="line">Configured Capacity: 10397683712 (9.68 GB)</span><br><span class="line">DFS Used: 63414272 (60.48 MB)</span><br><span class="line">Non DFS Used: 1009655808 (962.88 MB)</span><br><span class="line">DFS Remaining: 9324613632(8.68 GB)</span><br><span class="line">DFS Used%: 0.61%</span><br><span class="line">DFS Remaining%: 89.68%</span><br><span class="line">Last contact: Tue Oct 08 13:41:05 CST 2013</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Graped
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2017/04/05/17040502/" title="Hadoop伪分布式安装">http://yoursite.com/2017/04/05/17040502/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/05/17040501/" rel="next" title="rsync 自动安装脚本">
+                <i class="fa fa-chevron-left"></i> rsync 自动安装脚本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/07/17040701/" rel="prev" title="MySQL调优">
+                MySQL调优 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Graped</p>
+              <p class="site-description motion-element" itemprop="description">All or nothing, Now or never.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装前准备："><span class="nav-number">1.</span> <span class="nav-text">1. 安装前准备：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下载hadoop文件之后解压到目录-直接解压后设定为Hadoop目录即可"><span class="nav-number">2.</span> <span class="nav-text">2. 下载hadoop文件之后解压到目录,直接解压后设定为Hadoop目录即可</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-配置SSH"><span class="nav-number">3.</span> <span class="nav-text">3. 配置SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-格式化HDFS文件系统"><span class="nav-number">4.</span> <span class="nav-text">4. 格式化HDFS文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Hadoop配置文件"><span class="nav-number">5.</span> <span class="nav-text">5. Hadoop配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-启动HDFS和MapReduce守护进程"><span class="nav-number">6.</span> <span class="nav-text">6. 启动HDFS和MapReduce守护进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-查看进程是否启动"><span class="nav-number">7.</span> <span class="nav-text">7. 查看进程是否启动</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Graped</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

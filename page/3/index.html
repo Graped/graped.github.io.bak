@@ -82,7 +82,7 @@
 <meta name="description" content="All or nothing, Now or never.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DInG BloG">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="DInG BloG">
 <meta property="og:description" content="All or nothing, Now or never.">
 <meta property="og:locale" content="zh-Hans">
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/page/3/"/>
 
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/17050801/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/17032202/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/08/17050801/" itemprop="url">Galera：多主同步MySQL集群原理解析</a></h1>
+                <a class="post-title-link" href="/2017/03/22/17032202/" itemprop="url">resin 安装与配置</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T19:50:09+08:00">
-                2017-05-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T20:35:28+08:00">
+                2017-03-22
               </time>
             
 
@@ -293,28 +293,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -345,11 +323,13 @@
       
         
           
-          Galera Cluster 实现mysql群集参考：http://blog.itpub.net/14431099/viewspace-1316643/ http://lovestoned.blog.51cto.com/2904444/1617817http://www.itbaofeng.com/
+          resin 同样也需要jdk的支持，所以第一步也是安装jdk，安装jdk的方法这里不在复述。下面安装resin。
+resin的官网是http://caucho.com/,他分两个版本，resin是开源的，另外一个resinpro为商业版本。我们要用开源版本resin。下载、编译、安装：
+123456
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/05/08/17050801/#more" rel="contents">
+            <a class="btn" href="/2017/03/22/17032202/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -400,7 +380,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/17041401/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/17032201/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -419,7 +399,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/14/17041401/" itemprop="url">docker详解</a></h1>
+                <a class="post-title-link" href="/2017/03/22/17032201/" itemprop="url">tomcat的安装、配置和优化</a></h1>
         
 
         <div class="post-meta">
@@ -431,8 +411,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T00:23:46+08:00">
-                2017-04-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T18:39:56+08:00">
+                2017-03-22
               </time>
             
 
@@ -441,28 +421,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -493,16 +451,11 @@
       
         
           
-          容器虚拟化–docker核心概念
-镜像是一个只读的模板，类似于安装系统用到的那个iso文件，我们通过镜像来完成各种应用的部署。
-
-docker容器镜像类似于操作系统，而容器类似于虚拟机本身。它可以被启动、开始、停止、删除等操作，每个容器都是相互隔离的。
-
-docker仓库存放镜像的一个场所，仓库分为
+          前有很多网站使用jsp的程序编写，所以解析jsp的程序就必须要有相关的软件来完成。Tomcat就是用来解析jsp程序的一个软件，Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta项目中的一个核心项目，由Apache、Sun和其他一些公司及个
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/14/17041401/#more" rel="contents">
+            <a class="btn" href="/2017/03/22/17032201/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -553,7 +506,7 @@ docker仓库存放镜像的一个场所，仓库分为
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/07/17040701/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/17032103/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -572,7 +525,7 @@ docker仓库存放镜像的一个场所，仓库分为
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/07/17040701/" itemprop="url">MySQL调优</a></h1>
+                <a class="post-title-link" href="/2017/03/21/17032103/" itemprop="url">squid 服务介绍</a></h1>
         
 
         <div class="post-meta">
@@ -584,8 +537,8 @@ docker仓库存放镜像的一个场所，仓库分为
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-07T20:15:18+08:00">
-                2017-04-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T23:24:26+08:00">
+                2017-03-21
               </time>
             
 
@@ -594,28 +547,6 @@ docker仓库存放镜像的一个场所，仓库分为
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -646,14 +577,11 @@ docker仓库存放镜像的一个场所，仓库分为
       
         
           
-          MySQL调优可以从几个方面来做：
-架构层：做从库，实现读写分离；
-系统层次：增加内存；给磁盘做raid0或者raid5以增加磁盘的读写速度；RAID相关可以重新挂载磁盘，并加上noatime参数，这样可以减少磁盘的i/o;
-MySQL本身调优：(1) 如果未配置主从同步，可以把bin-log功能关
+          Squid是什么Squid是比较知名的代理软件，它不仅可以跑在linux上还可以跑在windows以及Unix上，它的技术已经非常成熟。目前使用Squid的用户也是十分广泛的。Squid与Linux下其它的代理软件如Apache、Socks、TIS FWTK和delegate相比，下载安装简单，配置
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/07/17040701/#more" rel="contents">
+            <a class="btn" href="/2017/03/21/17032103/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -704,7 +632,7 @@ MySQL本身调优：(1) 如果未配置主从同步，可以把bin-log功能关
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/05/17040502/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/17032102/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -723,7 +651,7 @@ MySQL本身调优：(1) 如果未配置主从同步，可以把bin-log功能关
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/05/17040502/" itemprop="url">Hadoop伪分布式安装</a></h1>
+                <a class="post-title-link" href="/2017/03/21/17032102/" itemprop="url">samba 部署和优化</a></h1>
         
 
         <div class="post-meta">
@@ -735,8 +663,8 @@ MySQL本身调优：(1) 如果未配置主从同步，可以把bin-log功能关
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-05T23:46:19+08:00">
-                2017-04-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T16:35:44+08:00">
+                2017-03-21
               </time>
             
 
@@ -745,28 +673,6 @@ MySQL本身调优：(1) 如果未配置主从同步，可以把bin-log功能关
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hadoop/" itemprop="url" rel="index">
-                    <span itemprop="name">hadoop</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -797,12 +703,13 @@ MySQL本身调优：(1) 如果未配置主从同步，可以把bin-log功能关
       
         
           
-          Hadoop内容官网：http://hadoop.apache.org/#What+Is+Apache+Hadoop%3F
-Hadoop内容较复杂，安装根据不同的需求有三种模式独立模式（standalong/local model ）：无需任何守护进程，所有程序都单个的JVM上执行。本模式适用于开发
+          以前我们在windows上共享文件的话，只需右击要共享的文件夹然后选择共享相关的选项设置即可。然而如何实现windows和linux的文件共享呢？这就涉及到了samba服务了，这个软件配置起来也不难，使用也非常简单。
+
+samba配置文件smb.conf安装系统的时候大多会默认安装samba，如果没
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/05/17040502/#more" rel="contents">
+            <a class="btn" href="/2017/03/21/17032102/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -853,7 +760,7 @@ Hadoop内容较复杂，安装根据不同的需求有三种模式独立模式�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/05/17040501/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/17032101/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -872,7 +779,7 @@ Hadoop内容较复杂，安装根据不同的需求有三种模式独立模式�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/05/17040501/" itemprop="url">rsync 自动安装脚本</a></h1>
+                <a class="post-title-link" href="/2017/03/21/17032101/" itemprop="url">vftp 部署和优化</a></h1>
         
 
         <div class="post-meta">
@@ -884,8 +791,8 @@ Hadoop内容较复杂，安装根据不同的需求有三种模式独立模式�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-05T15:15:36+08:00">
-                2017-04-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T00:38:33+08:00">
+                2017-03-21
               </time>
             
 
@@ -894,28 +801,6 @@ Hadoop内容较复杂，安装根据不同的需求有三种模式独立模式�
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/shellscripts/" itemprop="url" rel="index">
-                    <span itemprop="name">shellscripts</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -946,16 +831,18 @@ Hadoop内容较复杂，安装根据不同的需求有三种模式独立模式�
       
         
           
-          rsync 自动安装脚本
-#!/bin/bash
-#home_page http://grapedlinux.cn
+          作为系统默认自带的ftp服务软件，vsftpd使用也是挺多的，下面介绍一下vsftpd。
 
-rpm -q rsync &amp;&gt;/dev/null;
-rpm -q xinetd &amp;&gt;/dev/null || yum install rsync xine
+安装vsftpd
+
+1yum install -y vsftpd db4-utils
+这里安装两个软件包，同时会把依赖的包安装上。其中db4-utils 用来生成密码库文件。
+
+建立账号vsftpd默认是可以
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/05/17040501/#more" rel="contents">
+            <a class="btn" href="/2017/03/21/17032101/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1006,7 +893,7 @@ rpm -q xinetd &amp;&gt;/dev/null || yum install rsync xine
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/17040403/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/17032002/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -1025,7 +912,7 @@ rpm -q xinetd &amp;&gt;/dev/null || yum install rsync xine
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/04/17040403/" itemprop="url">Redis详解</a></h1>
+                <a class="post-title-link" href="/2017/03/20/17032002/" itemprop="url">pureftp 部署和优化</a></h1>
         
 
         <div class="post-meta">
@@ -1037,8 +924,8 @@ rpm -q xinetd &amp;&gt;/dev/null || yum install rsync xine
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T23:35:45+08:00">
-                2017-04-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T20:22:46+08:00">
+                2017-03-20
               </time>
             
 
@@ -1047,28 +934,6 @@ rpm -q xinetd &amp;&gt;/dev/null || yum install rsync xine
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/redis/" itemprop="url" rel="index">
-                    <span itemprop="name">redis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1099,16 +964,11 @@ rpm -q xinetd &amp;&gt;/dev/null || yum install rsync xine
       
         
           
-          一、Redis介绍
-
-redis是一个key-value存储系统，官方站点http://redis.io
-和memcached类似，但支持数据持久化
-支持更多value类型，除了和string外，还支持hash、lists(链表）、sets(集合）和sorted sets（有序集合）集中数据类型
-r
+          FTP是File Transfer Protocol（文件传输协议）的英文简称，而中文简称为 “文传协议” 用于Internet上的控制文件的双向传输。同时，它也是一个应用程序（Application）。用户可以通过它把自己的PC机与世界各地所有运行FTP协议的服务器相连，访问服务器上的大量程序和信
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/04/17040403/#more" rel="contents">
+            <a class="btn" href="/2017/03/20/17032002/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1159,7 +1019,7 @@ r
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/17040401/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/17032001/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -1178,7 +1038,7 @@ r
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/04/17040401/" itemprop="url">nginx+tomcat 配置负载均衡集群</a></h1>
+                <a class="post-title-link" href="/2017/03/20/17032001/" itemprop="url">NFS部署和优化</a></h1>
         
 
         <div class="post-meta">
@@ -1190,8 +1050,8 @@ r
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T10:38:51+08:00">
-                2017-04-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T19:28:41+08:00">
+                2017-03-20
               </time>
             
 
@@ -1200,28 +1060,6 @@ r
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/负载均衡/" itemprop="url" rel="index">
-                    <span itemprop="name">负载均衡</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1252,12 +1090,13 @@ r
       
         
           
-          一、Hello world1、前期环境准备
-准备两个解压版tomcat，如何同时启动两个tomcat，方法如下：首先去apache tomcat官网下载一个tomcat解压版。解压该压缩包，生成n份tomcat 分别命名为 tomcat1，tomcat2，然后修改server.xml配置文件，分别进
+          服务端配置NFSCentOS上使用NFS服务，需要安装两个包(nfs-utils和rpcbind),不过当使用yum安装nfs-utils 时会把rpcbind一起安装上
+1yum install -y nfs-utils rpcbind
+修改配置文件，默认该文件为空，现在编辑它:1vim /etc
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/04/17040401/#more" rel="contents">
+            <a class="btn" href="/2017/03/20/17032001/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1308,7 +1147,7 @@ r
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/03/17040301/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/19/17031901/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -1327,7 +1166,7 @@ r
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/03/17040301/" itemprop="url">Nginx主要应用场景</a></h1>
+                <a class="post-title-link" href="/2017/03/19/17031901/" itemprop="url">25个shell脚本代码分享</a></h1>
         
 
         <div class="post-meta">
@@ -1339,8 +1178,8 @@ r
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-03T11:23:42+08:00">
-                2017-04-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T13:27:50+08:00">
+                2017-03-19
               </time>
             
 
@@ -1349,28 +1188,6 @@ r
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1401,12 +1218,15 @@ r
       
         
           
-          前言本文只针对Nginx在不加载第三方模块的情况能处理哪些事情，由于第三方模块太多所以也介绍不完，当然本文本身也可能介绍的不完整，毕竟只是我个人使用过和了解到过得。所以还请见谅，同时欢迎留言交流。
-Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静分离）4. 正向代理以上就
+          25个shell脚本代码分享引言自己写了一下小的shell实例，虽然很小，但所有的大的程序都是由小的模块推挤起来的。，就分享几个linux的shell脚本吧。
+
+模拟linux登录shell
+
+123456789#/bin/bashecho -n &quot;login:&quot;read nam
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/03/17040301/#more" rel="contents">
+            <a class="btn" href="/2017/03/19/17031901/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1457,7 +1277,7 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/02/17040202/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/13/17031301/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -1476,7 +1296,7 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/02/17040202/" itemprop="url">Zabbix安装配置</a></h1>
+                <a class="post-title-link" href="/2017/03/13/17031301/" itemprop="url">php-fpm 配置文件</a></h1>
         
 
         <div class="post-meta">
@@ -1488,8 +1308,8 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T22:31:38+08:00">
-                2017-04-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-13T00:00:56+08:00">
+                2017-03-13
               </time>
             
 
@@ -1498,28 +1318,6 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/monitor/" itemprop="url" rel="index">
-                    <span itemprop="name">monitor</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1550,12 +1348,16 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
       
         
           
-          zabbix安装配置安装zabbix1yum install -y epel-release
-安装rpm包的lamp环境1yum install -y  httpd mysql mysql-libs php php-mysql mysql-server php-bcmath php-gd php-m
+          先清空php-fpm.conf
+&gt; /usr/local/php/etc/php-fpm.conf
+输入以下内容：
+[global]
+pid = /usr/local/php/var/run/php-fpm.pid
+error_log = /usr/local/php/var/log/php-
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/02/17040202/#more" rel="contents">
+            <a class="btn" href="/2017/03/13/17031301/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1606,7 +1408,7 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/02/17040201/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/17031211/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -1625,7 +1427,7 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/02/17040201/" itemprop="url">Nagios 安装和配置</a></h1>
+                <a class="post-title-link" href="/2017/03/12/17031211/" itemprop="url">nginx 代理详解</a></h1>
         
 
         <div class="post-meta">
@@ -1637,8 +1439,8 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T00:35:21+08:00">
-                2017-04-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:54:12+08:00">
+                2017-03-12
               </time>
             
 
@@ -1647,28 +1449,6 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/monitor/" itemprop="url" rel="index">
-                    <span itemprop="name">monitor</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1699,12 +1479,17 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
       
         
           
-          Nagios 安装和配置Nagios官网:http://www.nagios.org实验环境：一台服务端（IP：192.168.0.200）；一台客户端（IP：192.168.0.201）。
-1. Nagios安装 - 服务端（192.168.0.200）Centos6默认的yum源里没有nagio
+          编辑配置文件：
+vim /usr/local/nginx/conf/vhost/proxy.conf 
+加入：
+upstream graped
+        {
+        server 115.239.211.112:80;
+        server 115.239.211.112:80
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/02/17040201/#more" rel="contents">
+            <a class="btn" href="/2017/03/12/17031211/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1746,7 +1531,7 @@ Nginx能做什么1. 反向代理2. 负载均衡3. HTTP服务器（包含动静�
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
