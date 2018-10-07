@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Windows server," />
 
 
 
@@ -82,17 +82,18 @@
 
 
 <meta name="description" content="[TOC] 修改Windows实例SID以搭建域环境使用同一个Windows镜像创建的几台实例之间无法互相访问域或者无法同时加入域。 原因分析使用同一个Windows镜像的几台实例，其SID（计算机安全标识符Security Identifier）是一样的。此时需要修改系统SID，以避免无法相互访问域，再进行域环境的搭建。 解决方法Windows系统自带sysprep命令可以从已安装的Window">
+<meta name="keywords" content="Windows server">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DInG BloG">
-<meta property="og:url" content="http://grapedlinux.cn/2018/10/06/18100602/index.html">
+<meta property="og:title" content="修改Windows实例SID以搭建域环境">
+<meta property="og:url" content="http://grapedlinux.cn/2018/10/07/18100602/index.html">
 <meta property="og:site_name" content="DInG BloG">
 <meta property="og:description" content="[TOC] 修改Windows实例SID以搭建域环境使用同一个Windows镜像创建的几台实例之间无法互相访问域或者无法同时加入域。 原因分析使用同一个Windows镜像的几台实例，其SID（计算机安全标识符Security Identifier）是一样的。此时需要修改系统SID，以避免无法相互访问域，再进行域环境的搭建。 解决方法Windows系统自带sysprep命令可以从已安装的Window">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/40846/cn_zh/1505371292944/Powershell1.png">
 <meta property="og:image" content="http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/40846/cn_zh/1505371316862/WhoAmIUser.png">
-<meta property="og:updated_time" content="2018-10-06T02:32:45.500Z">
+<meta property="og:updated_time" content="2018-10-07T10:26:05.701Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DInG BloG">
+<meta name="twitter:title" content="修改Windows实例SID以搭建域环境">
 <meta name="twitter:description" content="[TOC] 修改Windows实例SID以搭建域环境使用同一个Windows镜像创建的几台实例之间无法互相访问域或者无法同时加入域。 原因分析使用同一个Windows镜像的几台实例，其SID（计算机安全标识符Security Identifier）是一样的。此时需要修改系统SID，以避免无法相互访问域，再进行域环境的搭建。 解决方法Windows系统自带sysprep命令可以从已安装的Window">
 <meta name="twitter:image" content="http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/40846/cn_zh/1505371292944/Powershell1.png">
 
@@ -124,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://grapedlinux.cn/2018/10/06/18100602/"/>
+  <link rel="canonical" href="http://grapedlinux.cn/2018/10/07/18100602/"/>
 
 
 
 
 
-  <title> | DInG BloG</title>
+  <title>修改Windows实例SID以搭建域环境 | DInG BloG</title>
   
 
 
@@ -257,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://grapedlinux.cn/2018/10/06/18100602/">
+    <link itemprop="mainEntityOfPage" href="http://grapedlinux.cn/2018/10/07/18100602/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graped">
@@ -274,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">修改Windows实例SID以搭建域环境</h1>
         
 
         <div class="post-meta">
@@ -286,8 +287,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-06T16:48:12+08:00">
-                2018-10-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-07T18:24:09+08:00">
+                2018-10-07
               </time>
             
 
@@ -445,7 +446,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://grapedlinux.cn/2018/10/06/18100602/" title="">http://grapedlinux.cn/2018/10/06/18100602/</a>
+    <a href="http://grapedlinux.cn/2018/10/07/18100602/" title="修改Windows实例SID以搭建域环境">http://grapedlinux.cn/2018/10/07/18100602/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -458,6 +459,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Windows-server/" rel="tag"><i class="fa fa-tag"></i> Windows server</a>
+          
+        </div>
+      
 
       
       
@@ -467,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/06/18100601/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/10/06/18100601/" rel="next" title="bond绑定双网卡">
+                <i class="fa fa-chevron-left"></i> bond绑定双网卡
               </a>
             
           </div>
@@ -476,6 +483,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/07/122/" rel="prev" title="122">
+                122 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -556,7 +567,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -578,7 +589,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
