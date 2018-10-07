@@ -5,9 +5,9 @@
   <subtitle>静以致远</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://grapedlinux.cn/"/>
+  <link href="http://www.grapedlinux.cn/"/>
   <updated>2018-10-07T10:29:48.430Z</updated>
-  <id>http://grapedlinux.cn/</id>
+  <id>http://www.grapedlinux.cn/</id>
   
   <author>
     <name>Graped</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>修改Windows实例SID以搭建域环境</title>
-    <link href="http://grapedlinux.cn/2018/10/07/18100602/"/>
-    <id>http://grapedlinux.cn/2018/10/07/18100602/</id>
+    <link href="http://www.grapedlinux.cn/2018/10/07/18100602/"/>
+    <id>http://www.grapedlinux.cn/2018/10/07/18100602/</id>
     <published>2018-10-07T10:24:09.000Z</published>
     <updated>2018-10-07T10:29:48.430Z</updated>
     
@@ -36,14 +36,14 @@
     </summary>
     
     
-      <category term="Windows server" scheme="http://grapedlinux.cn/tags/Windows-server/"/>
+      <category term="Windows server" scheme="http://www.grapedlinux.cn/tags/Windows-server/"/>
     
   </entry>
   
   <entry>
     <title>bond绑定双网卡</title>
-    <link href="http://grapedlinux.cn/2018/10/06/18100601/"/>
-    <id>http://grapedlinux.cn/2018/10/06/18100601/</id>
+    <link href="http://www.grapedlinux.cn/2018/10/06/18100601/"/>
+    <id>http://www.grapedlinux.cn/2018/10/06/18100601/</id>
     <published>2018-10-06T10:00:09.000Z</published>
     <updated>2018-10-07T10:24:57.893Z</updated>
     
@@ -60,14 +60,14 @@
     </summary>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>Galera：多主同步MySQL集群原理解析</title>
-    <link href="http://grapedlinux.cn/2017/05/08/17050801/"/>
-    <id>http://grapedlinux.cn/2017/05/08/17050801/</id>
+    <link href="http://www.grapedlinux.cn/2017/05/08/17050801/"/>
+    <id>http://www.grapedlinux.cn/2017/05/08/17050801/</id>
     <published>2017-05-08T11:50:09.000Z</published>
     <updated>2017-05-08T11:52:31.818Z</updated>
     
@@ -82,17 +82,17 @@
     
     </summary>
     
-      <category term="mysql" scheme="http://grapedlinux.cn/categories/mysql/"/>
+      <category term="mysql" scheme="http://www.grapedlinux.cn/categories/mysql/"/>
     
     
-      <category term="mysql" scheme="http://grapedlinux.cn/tags/mysql/"/>
+      <category term="mysql" scheme="http://www.grapedlinux.cn/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>docker详解</title>
-    <link href="http://grapedlinux.cn/2017/04/14/17041401/"/>
-    <id>http://grapedlinux.cn/2017/04/14/17041401/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/14/17041401/"/>
+    <id>http://www.grapedlinux.cn/2017/04/14/17041401/</id>
     <published>2017-04-13T16:23:46.000Z</published>
     <updated>2017-04-13T16:25:39.890Z</updated>
     
@@ -107,17 +107,17 @@
     
     </summary>
     
-      <category term="docker" scheme="http://grapedlinux.cn/categories/docker/"/>
+      <category term="docker" scheme="http://www.grapedlinux.cn/categories/docker/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>MySQL调优</title>
-    <link href="http://grapedlinux.cn/2017/04/07/17040701/"/>
-    <id>http://grapedlinux.cn/2017/04/07/17040701/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/07/17040701/"/>
+    <id>http://www.grapedlinux.cn/2017/04/07/17040701/</id>
     <published>2017-04-07T12:15:18.000Z</published>
     <updated>2017-04-07T15:08:31.548Z</updated>
     
@@ -134,17 +134,17 @@
     
     </summary>
     
-      <category term="mysql" scheme="http://grapedlinux.cn/categories/mysql/"/>
+      <category term="mysql" scheme="http://www.grapedlinux.cn/categories/mysql/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>Hadoop伪分布式安装</title>
-    <link href="http://grapedlinux.cn/2017/04/05/17040502/"/>
-    <id>http://grapedlinux.cn/2017/04/05/17040502/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/05/17040502/"/>
+    <id>http://www.grapedlinux.cn/2017/04/05/17040502/</id>
     <published>2017-04-05T15:46:19.000Z</published>
     <updated>2017-04-05T16:40:22.603Z</updated>
     
@@ -159,17 +159,17 @@
     
     </summary>
     
-      <category term="hadoop" scheme="http://grapedlinux.cn/categories/hadoop/"/>
+      <category term="hadoop" scheme="http://www.grapedlinux.cn/categories/hadoop/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>rsync 自动安装脚本</title>
-    <link href="http://grapedlinux.cn/2017/04/05/17040501/"/>
-    <id>http://grapedlinux.cn/2017/04/05/17040501/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/05/17040501/"/>
+    <id>http://www.grapedlinux.cn/2017/04/05/17040501/</id>
     <published>2017-04-05T07:15:36.000Z</published>
     <updated>2017-04-05T16:41:25.441Z</updated>
     
@@ -189,17 +189,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="shellscripts" scheme="http://grapedlinux.cn/categories/shellscripts/"/>
+      <category term="shellscripts" scheme="http://www.grapedlinux.cn/categories/shellscripts/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>Redis详解</title>
-    <link href="http://grapedlinux.cn/2017/04/04/17040403/"/>
-    <id>http://grapedlinux.cn/2017/04/04/17040403/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/04/17040403/"/>
+    <id>http://www.grapedlinux.cn/2017/04/04/17040403/</id>
     <published>2017-04-04T15:35:45.000Z</published>
     <updated>2017-04-04T16:29:20.088Z</updated>
     
@@ -216,17 +216,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="redis" scheme="http://grapedlinux.cn/categories/redis/"/>
+      <category term="redis" scheme="http://www.grapedlinux.cn/categories/redis/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>nginx+tomcat 配置负载均衡集群</title>
-    <link href="http://grapedlinux.cn/2017/04/04/17040401/"/>
-    <id>http://grapedlinux.cn/2017/04/04/17040401/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/04/17040401/"/>
+    <id>http://www.grapedlinux.cn/2017/04/04/17040401/</id>
     <published>2017-04-04T02:38:51.000Z</published>
     <updated>2017-04-04T03:40:09.996Z</updated>
     
@@ -241,17 +241,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="负载均衡" scheme="http://grapedlinux.cn/categories/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+      <category term="负载均衡" scheme="http://www.grapedlinux.cn/categories/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
     
     
-      <category term="nginx,java" scheme="http://grapedlinux.cn/tags/nginx-java/"/>
+      <category term="nginx,java" scheme="http://www.grapedlinux.cn/tags/nginx-java/"/>
     
   </entry>
   
   <entry>
     <title>Nginx主要应用场景</title>
-    <link href="http://grapedlinux.cn/2017/04/03/17040301/"/>
-    <id>http://grapedlinux.cn/2017/04/03/17040301/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/03/17040301/"/>
+    <id>http://www.grapedlinux.cn/2017/04/03/17040301/</id>
     <published>2017-04-03T03:23:42.000Z</published>
     <updated>2017-04-03T03:26:42.397Z</updated>
     
@@ -266,17 +266,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="nginx" scheme="http://grapedlinux.cn/categories/nginx/"/>
+      <category term="nginx" scheme="http://www.grapedlinux.cn/categories/nginx/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>Zabbix安装配置</title>
-    <link href="http://grapedlinux.cn/2017/04/02/17040202/"/>
-    <id>http://grapedlinux.cn/2017/04/02/17040202/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/02/17040202/"/>
+    <id>http://www.grapedlinux.cn/2017/04/02/17040202/</id>
     <published>2017-04-02T14:31:38.000Z</published>
     <updated>2017-04-03T01:43:56.117Z</updated>
     
@@ -291,17 +291,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="monitor" scheme="http://grapedlinux.cn/categories/monitor/"/>
+      <category term="monitor" scheme="http://www.grapedlinux.cn/categories/monitor/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>Nagios 安装和配置</title>
-    <link href="http://grapedlinux.cn/2017/04/02/17040201/"/>
-    <id>http://grapedlinux.cn/2017/04/02/17040201/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/02/17040201/"/>
+    <id>http://www.grapedlinux.cn/2017/04/02/17040201/</id>
     <published>2017-04-01T16:35:21.000Z</published>
     <updated>2017-04-01T16:36:47.284Z</updated>
     
@@ -316,17 +316,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="monitor" scheme="http://grapedlinux.cn/categories/monitor/"/>
+      <category term="monitor" scheme="http://www.grapedlinux.cn/categories/monitor/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>CentOS上搭建Git服务器</title>
-    <link href="http://grapedlinux.cn/2017/04/01/17040102/"/>
-    <id>http://grapedlinux.cn/2017/04/01/17040102/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/01/17040102/"/>
+    <id>http://www.grapedlinux.cn/2017/04/01/17040102/</id>
     <published>2017-04-01T08:43:10.000Z</published>
     <updated>2017-04-01T08:43:57.039Z</updated>
     
@@ -341,17 +341,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="github" scheme="http://grapedlinux.cn/categories/github/"/>
+      <category term="github" scheme="http://www.grapedlinux.cn/categories/github/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>linux监控之cacti</title>
-    <link href="http://grapedlinux.cn/2017/04/01/17040101/"/>
-    <id>http://grapedlinux.cn/2017/04/01/17040101/</id>
+    <link href="http://www.grapedlinux.cn/2017/04/01/17040101/"/>
+    <id>http://www.grapedlinux.cn/2017/04/01/17040101/</id>
     <published>2017-04-01T05:56:18.000Z</published>
     <updated>2017-04-01T06:02:19.365Z</updated>
     
@@ -367,17 +367,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="monitor" scheme="http://grapedlinux.cn/categories/monitor/"/>
+      <category term="monitor" scheme="http://www.grapedlinux.cn/categories/monitor/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>Nginx 的负载均衡集群</title>
-    <link href="http://grapedlinux.cn/2017/03/30/17033001/"/>
-    <id>http://grapedlinux.cn/2017/03/30/17033001/</id>
+    <link href="http://www.grapedlinux.cn/2017/03/30/17033001/"/>
+    <id>http://www.grapedlinux.cn/2017/03/30/17033001/</id>
     <published>2017-03-30T12:14:57.000Z</published>
     <updated>2017-03-30T12:24:25.295Z</updated>
     
@@ -392,17 +392,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="nginx" scheme="http://grapedlinux.cn/categories/nginx/"/>
+      <category term="nginx" scheme="http://www.grapedlinux.cn/categories/nginx/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>LB集群之LVS介绍</title>
-    <link href="http://grapedlinux.cn/2017/03/29/17032902/"/>
-    <id>http://grapedlinux.cn/2017/03/29/17032902/</id>
+    <link href="http://www.grapedlinux.cn/2017/03/29/17032902/"/>
+    <id>http://www.grapedlinux.cn/2017/03/29/17032902/</id>
     <published>2017-03-29T12:50:10.000Z</published>
     <updated>2017-03-30T01:40:37.321Z</updated>
     
@@ -417,17 +417,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="LVS" scheme="http://grapedlinux.cn/categories/LVS/"/>
+      <category term="LVS" scheme="http://www.grapedlinux.cn/categories/LVS/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>HA集群配置</title>
-    <link href="http://grapedlinux.cn/2017/03/29/17032901/"/>
-    <id>http://grapedlinux.cn/2017/03/29/17032901/</id>
+    <link href="http://www.grapedlinux.cn/2017/03/29/17032901/"/>
+    <id>http://www.grapedlinux.cn/2017/03/29/17032901/</id>
     <published>2017-03-28T16:04:09.000Z</published>
     <updated>2017-03-28T16:12:54.305Z</updated>
     
@@ -443,14 +443,14 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     </summary>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>DNS服务及安装配置</title>
-    <link href="http://grapedlinux.cn/2017/03/27/17032701/"/>
-    <id>http://grapedlinux.cn/2017/03/27/17032701/</id>
+    <link href="http://www.grapedlinux.cn/2017/03/27/17032701/"/>
+    <id>http://www.grapedlinux.cn/2017/03/27/17032701/</id>
     <published>2017-03-26T18:09:44.000Z</published>
     <updated>2017-03-26T18:23:05.529Z</updated>
     
@@ -465,17 +465,17 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     
     </summary>
     
-      <category term="Linux_Network" scheme="http://grapedlinux.cn/categories/Linux-Network/"/>
+      <category term="Linux_Network" scheme="http://www.grapedlinux.cn/categories/Linux-Network/"/>
     
     
-      <category term="linux" scheme="http://grapedlinux.cn/tags/linux/"/>
+      <category term="linux" scheme="http://www.grapedlinux.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>使用mysql-proxy 快速实现mysql 集群 读写分离</title>
-    <link href="http://grapedlinux.cn/2017/03/23/17032304/"/>
-    <id>http://grapedlinux.cn/2017/03/23/17032304/</id>
+    <link href="http://www.grapedlinux.cn/2017/03/23/17032304/"/>
+    <id>http://www.grapedlinux.cn/2017/03/23/17032304/</id>
     <published>2017-03-23T10:08:04.000Z</published>
     <updated>2017-03-23T10:14:49.501Z</updated>
     
@@ -491,14 +491,14 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     </summary>
     
     
-      <category term="mysql" scheme="http://grapedlinux.cn/tags/mysql/"/>
+      <category term="mysql" scheme="http://www.grapedlinux.cn/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>查看mysql主从复制延迟和数据中断--带脚本</title>
-    <link href="http://grapedlinux.cn/2017/03/23/17032303/"/>
-    <id>http://grapedlinux.cn/2017/03/23/17032303/</id>
+    <link href="http://www.grapedlinux.cn/2017/03/23/17032303/"/>
+    <id>http://www.grapedlinux.cn/2017/03/23/17032303/</id>
     <published>2017-03-23T10:07:14.000Z</published>
     <updated>2017-03-23T10:14:39.464Z</updated>
     
@@ -515,7 +515,7 @@ rpm -q xinetd &amp;amp;&amp;gt;/dev/nu
     </summary>
     
     
-      <category term="mysql" scheme="http://grapedlinux.cn/tags/mysql/"/>
+      <category term="mysql" scheme="http://www.grapedlinux.cn/tags/mysql/"/>
     
   </entry>
   
