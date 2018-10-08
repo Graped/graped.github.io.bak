@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,Ansible," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="DInG_BloG" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="[TOC] Ansible介绍  不需要安装客户端，通过sshd去通信 基于模块工作，模块可以由任何语言开发 不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读 安装十分简单，centos可直接yum安装 有提供UI（浏览器图形化）www.ansible.com/tower（收费） ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件">
+<meta name="keywords" content="Linux,Ansible">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ansible介绍">
+<meta property="og:url" content="http://www.grapedlinux.cn/2018/10/08/Ansible介绍/index.html">
+<meta property="og:site_name" content="DInG_BloG">
+<meta property="og:description" content="[TOC] Ansible介绍  不需要安装客户端，通过sshd去通信 基于模块工作，模块可以由任何语言开发 不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读 安装十分简单，centos可直接yum安装 有提供UI（浏览器图形化）www.ansible.com/tower（收费） ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJFVij.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJFdOK.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJFBwD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJFWOf.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJAYKx.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJkEnK.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJkruV.png">
+<meta property="og:updated_time" content="2018-10-08T03:45:53.107Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ansible介绍">
+<meta name="twitter:description" content="[TOC] Ansible介绍  不需要安装客户端，通过sshd去通信 基于模块工作，模块可以由任何语言开发 不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读 安装十分简单，centos可直接yum安装 有提供UI（浏览器图形化）www.ansible.com/tower（收费） ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/10/08/iJFVij.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.grapedlinux.cn/2018/10/08/Ansible介绍/"/>
+
+
+
+
+
+  <title>Ansible介绍 | DInG_BloG</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DInG_BloG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">静以致远</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.grapedlinux.cn/2018/10/08/Ansible介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Graped">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/10/07/iGo4Cd.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DInG_BloG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ansible介绍</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T11:45:12+08:00">
+                2018-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h1 id="Ansible介绍"><a href="#Ansible介绍" class="headerlink" title="Ansible介绍"></a>Ansible介绍</h1><blockquote>
+<ul>
+<li>不需要安装客户端，通过sshd去通信</li>
+<li>基于模块工作，模块可以由任何语言开发</li>
+<li>不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读</li>
+<li>安装十分简单，centos可直接yum安装</li>
+<li>有提供UI（浏览器图形化）<a href="www.ansible.com/tower">www.ansible.com/tower（收费）</a></li>
+<li>ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件，Github地址：<a href="https://github.com/ansible/ansible" target="_blank" rel="noopener">https://github.com/ansible/ansible</a></li>
+<li>一本非常不错的入门电子书 <a href="https://ansible-book.gitbooks.io/ansible-first-book/" target="_blank" rel="noopener">https://ansible-book.gitbooks.io/ansible-first-book/</a></li>
+</ul>
+</blockquote>
+<h2 id="1-Ansible的安装配置"><a href="#1-Ansible的安装配置" class="headerlink" title="1.Ansible的安装配置"></a>1.Ansible的安装配置</h2><blockquote>
+<p>本次试验的环境</p>
+</blockquote>
+<ul>
+<li><strong>server1</strong> GrapedLinux: CentOS 7.3  192.168.22.76</li>
+<li><strong>server2</strong> Linux-Test1：CentOS 7.3  192.168.22.77</li>
+<li><strong>server3</strong> Linux-Test2：CentOS 7.3  192.168.22.78</li>
+</ul>
+<h3 id="1-1-yum安装ansible"><a href="#1-1-yum安装ansible" class="headerlink" title="1.1 yum安装ansible"></a>1.1 yum安装ansible</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum list | grep ansible</span><br><span class="line">ansible.noarch                              2.4.2.0-2.el7              extras   </span><br><span class="line">ansible-doc.noarch                          2.4.2.0-2.el7              extras   <span class="comment"># 官方文档</span></span><br><span class="line"><span class="comment"># 可以看见自带的源里就有2.4版本的ansible</span></span><br><span class="line"></span><br><span class="line">yum install -y  ansible*   <span class="comment"># 安装ansible</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-配置ansible"><a href="#2-配置ansible" class="headerlink" title="2.配置ansible"></a>2.配置ansible</h2><h3 id="2-1-在server1-上生成公钥"><a href="#2-1-在server1-上生成公钥" class="headerlink" title="2.1 在server1 上生成公钥"></a>2.1 在server1 上生成公钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen  -t rsa</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/root/.ssh/id_rsa): </span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): </span><br><span class="line">Enter same passphrase again: </span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">8e:a1:f5:d7:cf:fe:c2:d9:9b:f8:1e:4c:ac:2b:c2:7c root@GrapedLinux</span><br><span class="line">The key<span class="string">'s randomart image is:</span></span><br><span class="line"><span class="string">+--[ RSA 2048]----+</span></span><br><span class="line"><span class="string">|                 |</span></span><br><span class="line"><span class="string">|                 |</span></span><br><span class="line"><span class="string">|                 |</span></span><br><span class="line"><span class="string">|              .  |</span></span><br><span class="line"><span class="string">|      o S      o |</span></span><br><span class="line"><span class="string">|     o =   .  +  |</span></span><br><span class="line"><span class="string">|    . . = . .o = |</span></span><br><span class="line"><span class="string">|         = E o* +|</span></span><br><span class="line"><span class="string">|          o .+*Bo|</span></span><br><span class="line"><span class="string">+-----------------+</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-ssh-copy-id命令来复制Ansible公钥到本机和server2节点中-server3节点不做处理。"><a href="#2-2-ssh-copy-id命令来复制Ansible公钥到本机和server2节点中-server3节点不做处理。" class="headerlink" title="2.2 ssh-copy-id命令来复制Ansible公钥到本机和server2节点中,server3节点不做处理。"></a>2.2 ssh-copy-id命令来复制Ansible公钥到本机和server2节点中,server3节点不做处理。</h3><p>复制到本机<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub root@127.0.0.1 </span><br><span class="line">The authenticity of host <span class="string">'127.0.0.1 (127.0.0.1)'</span> can<span class="string">'t be established. </span></span><br><span class="line"><span class="string">ECDSA key fingerprint is 96:ed:84:e0:0f:c1:71:62:fc:c3:29:fd:31:ae:8c:98.</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no)? yes</span></span><br><span class="line"><span class="string">/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</span></span><br><span class="line"><span class="string">/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys</span></span><br><span class="line"><span class="string">root@127.0.0.1'</span>s password: </span><br><span class="line"></span><br><span class="line">Number of key(s) added: 1</span><br><span class="line"></span><br><span class="line">Now try logging into the machine, with:   <span class="string">"ssh 'root@127.0.0.1'"</span></span><br><span class="line">and check to make sure that only the key(s) you wanted were added.</span><br></pre></td></tr></table></figure></p>
+<p>复制到server1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.22.77<span class="comment"># server1</span></span><br><span class="line">/usr/bin/ssh-copy-id: INFO: attempting to <span class="built_in">log</span> <span class="keyword">in</span> with the new key(s), to filter out any that are already installed</span><br><span class="line">/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- <span class="keyword">if</span> you are prompted now it is to install the new keys</span><br><span class="line">root@192.168.22.77<span class="string">'s password: </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Number of key(s) added: 1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Now try logging into the machine, with:   "ssh '</span>root@192.168.22.77<span class="string">'"</span></span><br><span class="line"><span class="string">and check to make sure that only the key(s) you wanted were added.</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-修改vi-etc-ansible-hosts"><a href="#2-3-修改vi-etc-ansible-hosts" class="headerlink" title="2.3 修改vi /etc/ansible/hosts"></a>2.3 修改<code>vi /etc/ansible/hosts</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ansible/hosts</span><br><span class="line"><span class="comment"># 添加一下内容，其中Ansible-Test是组名</span></span><br><span class="line">[Ansible-Test]</span><br><span class="line">127.0.0.1</span><br><span class="line">192.168.22.77</span><br></pre></td></tr></table></figure>
+<p>至此，Ansible的配置工作已经结束，下面我们来看看怎么使用Ansible</p>
+<h2 id="3-使用Ansible远程执行命令"><a href="#3-使用Ansible远程执行命令" class="headerlink" title="3. 使用Ansible远程执行命令"></a>3. 使用Ansible远程执行命令</h2><p>exp1 通过选择主机组的方式在远程机器上执行基础命令</p>
+<p><img src="https://s1.ax1x.com/2018/10/08/iJFVij.png" alt="img1"></p>
+<p>exp2 通过IP/主机名的形式，在单独一台机器上执行基础命令</p>
+<p><a href="https://imgchr.com/i/iJFdOK" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJFdOK.png" alt="img2"></a></p>
+<h3 id="3-1-有时候会遇见如下图报错"><a href="#3-1-有时候会遇见如下图报错" class="headerlink" title="3.1 有时候会遇见如下图报错"></a>3.1 有时候会遇见如下图报错</h3><p><a href="https://imgchr.com/i/iJFBwD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJFBwD.png" alt="iJFBwD.png"></a></p>
+<p>这是由于server3的主机selinux没有关闭</p>
+<p>解决办法是：</p>
+<ul>
+<li>关闭selinux</li>
+<li>安装libselinux-python</li>
+</ul>
+<h2 id="4-使用Ansible-远程执行脚本"><a href="#4-使用Ansible-远程执行脚本" class="headerlink" title="4. 使用Ansible 远程执行脚本"></a>4. 使用Ansible 远程执行脚本</h2><p>exp3 通过选择主机组的方式在远程机器上执行脚本</p>
+<p><a href="https://imgchr.com/i/iJFWOf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJFWOf.png" alt="iJFWOf.png"></a></p>
+<h3 id="需要注意的是："><a href="#需要注意的是：" class="headerlink" title="需要注意的是："></a>需要注意的是：</h3><ul>
+<li>command 不支持带管道的命令，shell支持</li>
+</ul>
+<p><a href="https://imgchr.com/i/iJAYKx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJAYKx.png" alt="iJAYKx.png"></a></p>
+<h2 id="5-使用Ansible拷贝文件或者目录"><a href="#5-使用Ansible拷贝文件或者目录" class="headerlink" title="5. 使用Ansible拷贝文件或者目录"></a>5. 使用Ansible拷贝文件或者目录</h2><h3 id="5-1-拷贝目录"><a href="#5-1-拷贝目录" class="headerlink" title="5.1 拷贝目录"></a>5.1 拷贝目录</h3><p><a href="https://imgchr.com/i/iJkEnK" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJkEnK.png" alt="iJkEnK.png"></a></p>
+<h4 id="5-1-1其中各参数表示的意义是："><a href="#5-1-1其中各参数表示的意义是：" class="headerlink" title="5.1.1其中各参数表示的意义是："></a>5.1.1其中各参数表示的意义是：</h4><ul>
+<li>src表示源目录</li>
+<li>dest表示目标目录</li>
+<li>owner表示所属主</li>
+<li>group表示所属组</li>
+<li>mode表示权限</li>
+</ul>
+<h4 id="5-1-2-需要注意的是"><a href="#5-1-2-需要注意的是" class="headerlink" title="5.1.2 需要注意的是:"></a>5.1.2 需要注意的是:</h4><p>源目录会放到目标目录下面去，如果目标指定的目录不存在，它会自动创建。如果拷贝的是文件</p>
+<h4 id="5-2-拷贝文件"><a href="#5-2-拷贝文件" class="headerlink" title="5.2 拷贝文件"></a>5.2 拷贝文件</h4><p><a href="https://imgchr.com/i/iJkruV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJkruV.png" alt="iJkruV.png"></a></p>
+<h4 id="5-2-2-需要注意的是："><a href="#5-2-2-需要注意的是：" class="headerlink" title="5.2.2 需要注意的是："></a>5.2.2 需要注意的是：</h4><p>这里的/tmp/123和源机器上的/etc/passwd是一致的，但是如果目标机器上已经有了/tmp/123目录，则会在/tmp/123目录下面简历passwd文件</p>
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+  	
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束❤感谢您的阅读-------------</div>
+    
+</div>
+  	
+	</div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Graped
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.grapedlinux.cn/2018/10/08/Ansible介绍/" title="Ansible介绍">http://www.grapedlinux.cn/2018/10/08/Ansible介绍/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux-Ansible/" rel="tag"><i class="fa fa-tag"></i> Linux,Ansible</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/07/18100602/" rel="next" title="修改Windows实例SID以搭建域环境">
+                <i class="fa fa-chevron-left"></i> 修改Windows实例SID以搭建域环境
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://s1.ax1x.com/2018/10/07/iGo4Cd.jpg"
+                alt="Graped" />
+            
+              <p class="site-author-name" itemprop="name">Graped</p>
+              <p class="site-description motion-element" itemprop="description">All or nothing, Now or never.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Graped" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:graped@aliyun.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/graped" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.instagram.com/graped_ding" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ansible介绍"><span class="nav-number">1.</span> <span class="nav-text">Ansible介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Ansible的安装配置"><span class="nav-number">1.1.</span> <span class="nav-text">1.Ansible的安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-yum安装ansible"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 yum安装ansible</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-配置ansible"><span class="nav-number">1.2.</span> <span class="nav-text">2.配置ansible</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-在server1-上生成公钥"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 在server1 上生成公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-ssh-copy-id命令来复制Ansible公钥到本机和server2节点中-server3节点不做处理。"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 ssh-copy-id命令来复制Ansible公钥到本机和server2节点中,server3节点不做处理。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-修改vi-etc-ansible-hosts"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 修改vi /etc/ansible/hosts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用Ansible远程执行命令"><span class="nav-number">1.3.</span> <span class="nav-text">3. 使用Ansible远程执行命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-有时候会遇见如下图报错"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 有时候会遇见如下图报错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用Ansible-远程执行脚本"><span class="nav-number">1.4.</span> <span class="nav-text">4. 使用Ansible 远程执行脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要注意的是："><span class="nav-number">1.4.1.</span> <span class="nav-text">需要注意的是：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-使用Ansible拷贝文件或者目录"><span class="nav-number">1.5.</span> <span class="nav-text">5. 使用Ansible拷贝文件或者目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-拷贝目录"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1 拷贝目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1其中各参数表示的意义是："><span class="nav-number">1.5.1.1.</span> <span class="nav-text">5.1.1其中各参数表示的意义是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-需要注意的是"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">5.1.2 需要注意的是:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-拷贝文件"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">5.2 拷贝文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-需要注意的是："><span class="nav-number">1.5.1.4.</span> <span class="nav-text">5.2.2 需要注意的是：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Graped</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">48.3k</span>
+  
+</div>
+
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div>
+-->
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共48.3k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
