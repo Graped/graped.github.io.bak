@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJAYKx.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJkEnK.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJkruV.png">
-<meta property="og:updated_time" content="2018-10-08T03:45:53.107Z">
+<meta property="og:updated_time" content="2018-10-08T03:51:12.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ansible介绍">
 <meta name="twitter:description" content="[TOC] Ansible介绍  不需要安装客户端，通过sshd去通信 基于模块工作，模块可以由任何语言开发 不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读 安装十分简单，centos可直接yum安装 有提供UI（浏览器图形化）www.ansible.com/tower（收费） ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件">
@@ -378,8 +378,8 @@
 <h2 id="3-使用Ansible远程执行命令"><a href="#3-使用Ansible远程执行命令" class="headerlink" title="3. 使用Ansible远程执行命令"></a>3. 使用Ansible远程执行命令</h2><p>exp1 通过选择主机组的方式在远程机器上执行基础命令</p>
 <p><img src="https://s1.ax1x.com/2018/10/08/iJFVij.png" alt="img1"></p>
 <p>exp2 通过IP/主机名的形式，在单独一台机器上执行基础命令</p>
-<p><a href="https://imgchr.com/i/iJFdOK" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJFdOK.png" alt="img2"></a></p>
-<h3 id="3-1-有时候会遇见如下图报错"><a href="#3-1-有时候会遇见如下图报错" class="headerlink" title="3.1 有时候会遇见如下图报错"></a>3.1 有时候会遇见如下图报错</h3><p><a href="https://imgchr.com/i/iJFBwD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJFBwD.png" alt="iJFBwD.png"></a></p>
+<p><img src="https://s1.ax1x.com/2018/10/08/iJFdOK.png" alt="img2"></p>
+<h3 id="3-1-有时候会遇见如下图报错"><a href="#3-1-有时候会遇见如下图报错" class="headerlink" title="3.1 有时候会遇见如下图报错"></a>3.1 有时候会遇见如下图报错</h3><p><img src="https://s1.ax1x.com/2018/10/08/iJFBwD.png" alt="iJFBwD.png"></p>
 <p>这是由于server3的主机selinux没有关闭</p>
 <p>解决办法是：</p>
 <ul>
@@ -387,12 +387,12 @@
 <li>安装libselinux-python</li>
 </ul>
 <h2 id="4-使用Ansible-远程执行脚本"><a href="#4-使用Ansible-远程执行脚本" class="headerlink" title="4. 使用Ansible 远程执行脚本"></a>4. 使用Ansible 远程执行脚本</h2><p>exp3 通过选择主机组的方式在远程机器上执行脚本</p>
-<p><a href="https://imgchr.com/i/iJFWOf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJFWOf.png" alt="iJFWOf.png"></a></p>
+<p><img src="https://s1.ax1x.com/2018/10/08/iJFWOf.png" alt="iJFWOf.png"></p>
 <h3 id="需要注意的是："><a href="#需要注意的是：" class="headerlink" title="需要注意的是："></a>需要注意的是：</h3><ul>
 <li>command 不支持带管道的命令，shell支持</li>
 </ul>
-<p><a href="https://imgchr.com/i/iJAYKx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJAYKx.png" alt="iJAYKx.png"></a></p>
-<h2 id="5-使用Ansible拷贝文件或者目录"><a href="#5-使用Ansible拷贝文件或者目录" class="headerlink" title="5. 使用Ansible拷贝文件或者目录"></a>5. 使用Ansible拷贝文件或者目录</h2><h3 id="5-1-拷贝目录"><a href="#5-1-拷贝目录" class="headerlink" title="5.1 拷贝目录"></a>5.1 拷贝目录</h3><p><a href="https://imgchr.com/i/iJkEnK" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJkEnK.png" alt="iJkEnK.png"></a></p>
+<p><img src="https://s1.ax1x.com/2018/10/08/iJAYKx.png" alt="iJAYKx.png"></p>
+<h2 id="5-使用Ansible拷贝文件或者目录"><a href="#5-使用Ansible拷贝文件或者目录" class="headerlink" title="5. 使用Ansible拷贝文件或者目录"></a>5. 使用Ansible拷贝文件或者目录</h2><h3 id="5-1-拷贝目录"><a href="#5-1-拷贝目录" class="headerlink" title="5.1 拷贝目录"></a>5.1 拷贝目录</h3><p><img src="https://s1.ax1x.com/2018/10/08/iJkEnK.png" alt="iJkEnK.png"></p>
 <h4 id="5-1-1其中各参数表示的意义是："><a href="#5-1-1其中各参数表示的意义是：" class="headerlink" title="5.1.1其中各参数表示的意义是："></a>5.1.1其中各参数表示的意义是：</h4><ul>
 <li>src表示源目录</li>
 <li>dest表示目标目录</li>
@@ -401,7 +401,7 @@
 <li>mode表示权限</li>
 </ul>
 <h4 id="5-1-2-需要注意的是"><a href="#5-1-2-需要注意的是" class="headerlink" title="5.1.2 需要注意的是:"></a>5.1.2 需要注意的是:</h4><p>源目录会放到目标目录下面去，如果目标指定的目录不存在，它会自动创建。如果拷贝的是文件</p>
-<h4 id="5-2-拷贝文件"><a href="#5-2-拷贝文件" class="headerlink" title="5.2 拷贝文件"></a>5.2 拷贝文件</h4><p><a href="https://imgchr.com/i/iJkruV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJkruV.png" alt="iJkruV.png"></a></p>
+<h4 id="5-2-拷贝文件"><a href="#5-2-拷贝文件" class="headerlink" title="5.2 拷贝文件"></a>5.2 拷贝文件</h4><p><img src="https://s1.ax1x.com/2018/10/08/iJkruV.png" alt="iJkruV.png"></p>
 <h4 id="5-2-2-需要注意的是："><a href="#5-2-2-需要注意的是：" class="headerlink" title="5.2.2 需要注意的是："></a>5.2.2 需要注意的是：</h4><p>这里的/tmp/123和源机器上的/etc/passwd是一致的，但是如果目标机器上已经有了/tmp/123目录，则会在/tmp/123目录下面简历passwd文件</p>
 
       
