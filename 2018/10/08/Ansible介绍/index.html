@@ -83,13 +83,13 @@
 
 
 
-<meta name="description" content="[TOC] Ansible介绍  不需要安装客户端，通过sshd去通信 基于模块工作，模块可以由任何语言开发 不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读 安装十分简单，centos可直接yum安装 有提供UI（浏览器图形化）www.ansible.com/tower（收费） ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件">
+<meta name="description" content="Ansible详解  不需要安装客户端，通过sshd去通信 基于模块工作，模块可以由任何语言开发 不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读 安装十分简单，centos可直接yum安装 有提供UI（浏览器图形化）www.ansible.com/tower（收费） ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件，Githu">
 <meta name="keywords" content="Linux,Ansible">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ansible介绍">
+<meta property="og:title" content="Ansible详解">
 <meta property="og:url" content="http://www.grapedlinux.cn/2018/10/08/Ansible介绍/index.html">
 <meta property="og:site_name" content="DInG_BloG">
-<meta property="og:description" content="[TOC] Ansible介绍  不需要安装客户端，通过sshd去通信 基于模块工作，模块可以由任何语言开发 不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读 安装十分简单，centos可直接yum安装 有提供UI（浏览器图形化）www.ansible.com/tower（收费） ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件">
+<meta property="og:description" content="Ansible详解  不需要安装客户端，通过sshd去通信 基于模块工作，模块可以由任何语言开发 不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读 安装十分简单，centos可直接yum安装 有提供UI（浏览器图形化）www.ansible.com/tower（收费） ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件，Githu">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJFVij.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJFdOK.png">
@@ -98,10 +98,17 @@
 <meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJAYKx.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJkEnK.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/10/08/iJkruV.png">
-<meta property="og:updated_time" content="2018-10-08T03:52:57.728Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/09/iJHkzd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/09/iJHZLt.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/09/iYkqYQ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/09/iYkxO0.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/09/iYAPkF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/09/iYAAp9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/10/iYdgzj.png">
+<meta property="og:updated_time" content="2018-10-10T03:07:24.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ansible介绍">
-<meta name="twitter:description" content="[TOC] Ansible介绍  不需要安装客户端，通过sshd去通信 基于模块工作，模块可以由任何语言开发 不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读 安装十分简单，centos可直接yum安装 有提供UI（浏览器图形化）www.ansible.com/tower（收费） ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件">
+<meta name="twitter:title" content="Ansible详解">
+<meta name="twitter:description" content="Ansible详解  不需要安装客户端，通过sshd去通信 基于模块工作，模块可以由任何语言开发 不仅支持命令行使用模块，也支持编写yaml格式的playbook，易于编写和阅读 安装十分简单，centos可直接yum安装 有提供UI（浏览器图形化）www.ansible.com/tower（收费） ansible已经被redhat公司收购，它在github上是一款非常受欢迎的开源软件，Githu">
 <meta name="twitter:image" content="https://s1.ax1x.com/2018/10/08/iJFVij.png">
 
 
@@ -138,7 +145,7 @@
 
 
 
-  <title>Ansible介绍 | DInG_BloG</title>
+  <title>Ansible详解 | DInG_BloG</title>
   
 
 
@@ -340,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ansible介绍</h1>
+          <h1 class="post-title" itemprop="name headline">Ansible详解</h1>
         
 
         <div class="post-meta">
@@ -387,7 +394,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -408,8 +415,7 @@
       
 
       
-        <p>[TOC]</p>
-<h1 id="Ansible介绍"><a href="#Ansible介绍" class="headerlink" title="Ansible介绍"></a>Ansible介绍</h1><blockquote>
+        <h1 id="Ansible详解"><a href="#Ansible详解" class="headerlink" title="Ansible详解"></a>Ansible详解</h1><blockquote>
 <ul>
 <li>不需要安装客户端，通过sshd去通信</li>
 <li>基于模块工作，模块可以由任何语言开发</li>
@@ -438,8 +444,8 @@
 <h2 id="3-使用Ansible远程执行命令"><a href="#3-使用Ansible远程执行命令" class="headerlink" title="3. 使用Ansible远程执行命令"></a>3. 使用Ansible远程执行命令</h2><p>exp1 通过选择主机组的方式在远程机器上执行基础命令</p>
 <p><img src="https://s1.ax1x.com/2018/10/08/iJFVij.png" alt="img1"></p>
 <p>exp2 通过IP/主机名的形式，在单独一台机器上执行基础命令</p>
-<p><img src="https://s1.ax1x.com/2018/10/08/iJFdOK.png" alt="img2"></p>
-<h3 id="3-1-有时候会遇见如下图报错"><a href="#3-1-有时候会遇见如下图报错" class="headerlink" title="3.1 有时候会遇见如下图报错"></a>3.1 有时候会遇见如下图报错</h3><p><img src="https://s1.ax1x.com/2018/10/08/iJFBwD.png" alt="iJFBwD.png"></p>
+<p><a href="https://imgchr.com/i/iJFdOK" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJFdOK.png" alt="img2"></a></p>
+<h3 id="3-1-有时候会遇见如下图报错"><a href="#3-1-有时候会遇见如下图报错" class="headerlink" title="3.1 有时候会遇见如下图报错"></a>3.1 有时候会遇见如下图报错</h3><p><a href="https://imgchr.com/i/iJFBwD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJFBwD.png" alt="iJFBwD.png"></a></p>
 <p>这是由于server3的主机selinux没有关闭</p>
 <p>解决办法是：</p>
 <ul>
@@ -447,12 +453,12 @@
 <li>安装libselinux-python</li>
 </ul>
 <h2 id="4-使用Ansible-远程执行脚本"><a href="#4-使用Ansible-远程执行脚本" class="headerlink" title="4. 使用Ansible 远程执行脚本"></a>4. 使用Ansible 远程执行脚本</h2><p>exp3 通过选择主机组的方式在远程机器上执行脚本</p>
-<p><img src="https://s1.ax1x.com/2018/10/08/iJFWOf.png" alt="iJFWOf.png"></p>
+<p><a href="https://imgchr.com/i/iJFWOf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJFWOf.png" alt="iJFWOf.png"></a></p>
 <h3 id="需要注意的是："><a href="#需要注意的是：" class="headerlink" title="需要注意的是："></a>需要注意的是：</h3><ul>
 <li>command 不支持带管道的命令，shell支持</li>
 </ul>
-<p><img src="https://s1.ax1x.com/2018/10/08/iJAYKx.png" alt="iJAYKx.png"></p>
-<h2 id="5-使用Ansible拷贝文件或者目录"><a href="#5-使用Ansible拷贝文件或者目录" class="headerlink" title="5. 使用Ansible拷贝文件或者目录"></a>5. 使用Ansible拷贝文件或者目录</h2><h3 id="5-1-拷贝目录"><a href="#5-1-拷贝目录" class="headerlink" title="5.1 拷贝目录"></a>5.1 拷贝目录</h3><p><img src="https://s1.ax1x.com/2018/10/08/iJkEnK.png" alt="iJkEnK.png"></p>
+<p><a href="https://imgchr.com/i/iJAYKx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJAYKx.png" alt="iJAYKx.png"></a></p>
+<h2 id="5-使用Ansible拷贝文件或者目录"><a href="#5-使用Ansible拷贝文件或者目录" class="headerlink" title="5. 使用Ansible拷贝文件或者目录"></a>5. 使用Ansible拷贝文件或者目录</h2><h3 id="5-1-拷贝目录"><a href="#5-1-拷贝目录" class="headerlink" title="5.1 拷贝目录"></a>5.1 拷贝目录</h3><p><a href="https://imgchr.com/i/iJkEnK" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJkEnK.png" alt="iJkEnK.png"></a></p>
 <h4 id="5-1-1其中各参数表示的意义是："><a href="#5-1-1其中各参数表示的意义是：" class="headerlink" title="5.1.1其中各参数表示的意义是："></a>5.1.1其中各参数表示的意义是：</h4><ul>
 <li>src表示源目录</li>
 <li>dest表示目标目录</li>
@@ -461,8 +467,15 @@
 <li>mode表示权限</li>
 </ul>
 <h4 id="5-1-2-需要注意的是"><a href="#5-1-2-需要注意的是" class="headerlink" title="5.1.2 需要注意的是:"></a>5.1.2 需要注意的是:</h4><p>源目录会放到目标目录下面去，如果目标指定的目录不存在，它会自动创建。如果拷贝的是文件</p>
-<h4 id="5-2-拷贝文件"><a href="#5-2-拷贝文件" class="headerlink" title="5.2 拷贝文件"></a>5.2 拷贝文件</h4><p><img src="https://s1.ax1x.com/2018/10/08/iJkruV.png" alt="iJkruV.png"></p>
+<h4 id="5-2-拷贝文件"><a href="#5-2-拷贝文件" class="headerlink" title="5.2 拷贝文件"></a>5.2 拷贝文件</h4><p><a href="https://imgchr.com/i/iJkruV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/08/iJkruV.png" alt="iJkruV.png"></a></p>
 <h4 id="5-2-2-需要注意的是："><a href="#5-2-2-需要注意的是：" class="headerlink" title="5.2.2 需要注意的是："></a>5.2.2 需要注意的是：</h4><p>这里的/tmp/123和源机器上的/etc/passwd是一致的，但是如果目标机器上已经有了/tmp/123目录，则会在/tmp/123目录下面简历passwd文件</p>
+<h2 id="6-使用ansible管理任务计划"><a href="#6-使用ansible管理任务计划" class="headerlink" title="6. 使用ansible管理任务计划"></a>6. 使用ansible管理任务计划</h2><h3 id="6-1-在serverr1上创建任务管理计划"><a href="#6-1-在serverr1上创建任务管理计划" class="headerlink" title="6.1 在serverr1上创建任务管理计划"></a>6.1 在serverr1上创建任务管理计划</h3><p><img src="https://s1.ax1x.com/2018/10/09/iJHkzd.png" alt="image"></p>
+<h3 id="6-2-查看在server1上创建的任务计划"><a href="#6-2-查看在server1上创建的任务计划" class="headerlink" title="6.2 查看在server1上创建的任务计划"></a>6.2 查看在server1上创建的任务计划</h3><p><img src="https://s1.ax1x.com/2018/10/09/iJHZLt.png" alt="image"></p>
+<h3 id="6-3-删除在server1上创建的计划任务"><a href="#6-3-删除在server1上创建的计划任务" class="headerlink" title="6.3 删除在server1上创建的计划任务"></a>6.3 删除在server1上创建的计划任务</h3><p><img src="https://s1.ax1x.com/2018/10/09/iYkqYQ.png" alt="image"></p>
+<h3 id="6-4-查看server1上创建的计划任务是否已经被删除"><a href="#6-4-查看server1上创建的计划任务是否已经被删除" class="headerlink" title="6.4 查看server1上创建的计划任务是否已经被删除"></a>6.4 查看server1上创建的计划任务是否已经被删除</h3><p><img src="https://s1.ax1x.com/2018/10/09/iYkxO0.png" alt="image"></p>
+<h3 id="6-5-注意，通过Ansible创建的计划任务不可以手工更改，否则之后就没法再进行其他操作了"><a href="#6-5-注意，通过Ansible创建的计划任务不可以手工更改，否则之后就没法再进行其他操作了" class="headerlink" title="6.5 注意，通过Ansible创建的计划任务不可以手工更改，否则之后就没法再进行其他操作了"></a>6.5 注意，通过Ansible创建的计划任务不可以手工更改，否则之后就没法再进行其他操作了</h3><h2 id="7-使用ansible安装包和管理服务"><a href="#7-使用ansible安装包和管理服务" class="headerlink" title="7. 使用ansible安装包和管理服务"></a>7. 使用ansible安装包和管理服务</h2><h3 id="7-1-使用ansible安装httpd服务"><a href="#7-1-使用ansible安装httpd服务" class="headerlink" title="7.1 使用ansible安装httpd服务"></a>7.1 使用ansible安装httpd服务</h3><p><img src="https://s1.ax1x.com/2018/10/09/iYAPkF.png" alt="image"></p>
+<h3 id="7-2-使用ansible卸载httpd服务"><a href="#7-2-使用ansible卸载httpd服务" class="headerlink" title="7.2 使用ansible卸载httpd服务"></a>7.2 使用ansible卸载httpd服务</h3><p><img src="https://s1.ax1x.com/2018/10/09/iYAAp9.png" alt="image"></p>
+<h3 id="7-3-使用ansible启动httpd服务"><a href="#7-3-使用ansible启动httpd服务" class="headerlink" title="7.3 使用ansible启动httpd服务"></a>7.3 使用ansible启动httpd服务</h3><p><img src="https://s1.ax1x.com/2018/10/10/iYdgzj.png" alt="image"></p>
 
       
     </div>
@@ -493,7 +506,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.grapedlinux.cn/2018/10/08/Ansible介绍/" title="Ansible介绍">http://www.grapedlinux.cn/2018/10/08/Ansible介绍/</a>
+    <a href="http://www.grapedlinux.cn/2018/10/08/Ansible介绍/" title="Ansible详解">http://www.grapedlinux.cn/2018/10/08/Ansible介绍/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -700,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ansible介绍"><span class="nav-number">1.</span> <span class="nav-text">Ansible介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Ansible的安装配置"><span class="nav-number">1.1.</span> <span class="nav-text">1.Ansible的安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-yum安装ansible"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 yum安装ansible</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-配置ansible"><span class="nav-number">1.2.</span> <span class="nav-text">2.配置ansible</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-在server1-上生成公钥"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 在server1 上生成公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-ssh-copy-id命令来复制Ansible公钥到本机和server2节点中-server3节点不做处理。"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 ssh-copy-id命令来复制Ansible公钥到本机和server2节点中,server3节点不做处理。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-修改vi-etc-ansible-hosts"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 修改vi /etc/ansible/hosts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用Ansible远程执行命令"><span class="nav-number">1.3.</span> <span class="nav-text">3. 使用Ansible远程执行命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-有时候会遇见如下图报错"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 有时候会遇见如下图报错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用Ansible-远程执行脚本"><span class="nav-number">1.4.</span> <span class="nav-text">4. 使用Ansible 远程执行脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要注意的是："><span class="nav-number">1.4.1.</span> <span class="nav-text">需要注意的是：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-使用Ansible拷贝文件或者目录"><span class="nav-number">1.5.</span> <span class="nav-text">5. 使用Ansible拷贝文件或者目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-拷贝目录"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1 拷贝目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1其中各参数表示的意义是："><span class="nav-number">1.5.1.1.</span> <span class="nav-text">5.1.1其中各参数表示的意义是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-需要注意的是"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">5.1.2 需要注意的是:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-拷贝文件"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">5.2 拷贝文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-需要注意的是："><span class="nav-number">1.5.1.4.</span> <span class="nav-text">5.2.2 需要注意的是：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ansible详解"><span class="nav-number">1.</span> <span class="nav-text">Ansible详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Ansible的安装配置"><span class="nav-number">1.1.</span> <span class="nav-text">1.Ansible的安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-yum安装ansible"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 yum安装ansible</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-配置ansible"><span class="nav-number">1.2.</span> <span class="nav-text">2.配置ansible</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-在server1-上生成公钥"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 在server1 上生成公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-ssh-copy-id命令来复制Ansible公钥到本机和server2节点中-server3节点不做处理。"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 ssh-copy-id命令来复制Ansible公钥到本机和server2节点中,server3节点不做处理。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-修改vi-etc-ansible-hosts"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 修改vi /etc/ansible/hosts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用Ansible远程执行命令"><span class="nav-number">1.3.</span> <span class="nav-text">3. 使用Ansible远程执行命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-有时候会遇见如下图报错"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 有时候会遇见如下图报错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用Ansible-远程执行脚本"><span class="nav-number">1.4.</span> <span class="nav-text">4. 使用Ansible 远程执行脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要注意的是："><span class="nav-number">1.4.1.</span> <span class="nav-text">需要注意的是：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-使用Ansible拷贝文件或者目录"><span class="nav-number">1.5.</span> <span class="nav-text">5. 使用Ansible拷贝文件或者目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-拷贝目录"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1 拷贝目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1其中各参数表示的意义是："><span class="nav-number">1.5.1.1.</span> <span class="nav-text">5.1.1其中各参数表示的意义是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-需要注意的是"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">5.1.2 需要注意的是:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-拷贝文件"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">5.2 拷贝文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-需要注意的是："><span class="nav-number">1.5.1.4.</span> <span class="nav-text">5.2.2 需要注意的是：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-使用ansible管理任务计划"><span class="nav-number">1.6.</span> <span class="nav-text">6. 使用ansible管理任务计划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-在serverr1上创建任务管理计划"><span class="nav-number">1.6.1.</span> <span class="nav-text">6.1 在serverr1上创建任务管理计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-查看在server1上创建的任务计划"><span class="nav-number">1.6.2.</span> <span class="nav-text">6.2 查看在server1上创建的任务计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-删除在server1上创建的计划任务"><span class="nav-number">1.6.3.</span> <span class="nav-text">6.3 删除在server1上创建的计划任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-查看server1上创建的计划任务是否已经被删除"><span class="nav-number">1.6.4.</span> <span class="nav-text">6.4 查看server1上创建的计划任务是否已经被删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-注意，通过Ansible创建的计划任务不可以手工更改，否则之后就没法再进行其他操作了"><span class="nav-number">1.6.5.</span> <span class="nav-text">6.5 注意，通过Ansible创建的计划任务不可以手工更改，否则之后就没法再进行其他操作了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-使用ansible安装包和管理服务"><span class="nav-number">1.7.</span> <span class="nav-text">7. 使用ansible安装包和管理服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-使用ansible安装httpd服务"><span class="nav-number">1.7.1.</span> <span class="nav-text">7.1 使用ansible安装httpd服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-使用ansible卸载httpd服务"><span class="nav-number">1.7.2.</span> <span class="nav-text">7.2 使用ansible卸载httpd服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-使用ansible启动httpd服务"><span class="nav-number">1.7.3.</span> <span class="nav-text">7.3 使用ansible启动httpd服务</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -734,7 +747,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.3k</span>
+    <span title="Site words total count">48.5k</span>
   
 </div>
 
@@ -756,7 +769,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共48.3k字</span>
+  <span class="post-count">博客全站共48.5k字</span>
 </div>
         
 
