@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ansible," />
 
 
 
@@ -83,16 +83,20 @@
 
 
 
-<meta name="description" content="All or nothing, Now or never.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="DInG_BloG">
-<meta property="og:url" content="http://www.grapedlinux.cn/archives/2017/page/4/index.html">
+<meta name="description" content="使用ansible-playbook推送安装nginx 本文主要介绍了如何将ansible-playbook投入生产中，下面我们以推送安装nginx举例  1. 思路： 现在主机上编译，配置好nginx， 然后将安装程序目录打包 最后用ansible分发下去  2. 流程图如下： 3. 执行配置过程3.1 编译安装nginx详见： 编译安装Nginx3.2 创建ansible roles目录结构1">
+<meta name="keywords" content="ansible">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用ansible-playbook推送安装nginx">
+<meta property="og:url" content="http://www.grapedlinux.cn/2018/10/11/使用ansible-playbook推送安装nginx/index.html">
 <meta property="og:site_name" content="DInG_BloG">
-<meta property="og:description" content="All or nothing, Now or never.">
+<meta property="og:description" content="使用ansible-playbook推送安装nginx 本文主要介绍了如何将ansible-playbook投入生产中，下面我们以推送安装nginx举例  1. 思路： 现在主机上编译，配置好nginx， 然后将安装程序目录打包 最后用ansible分发下去  2. 流程图如下： 3. 执行配置过程3.1 编译安装nginx详见： 编译安装Nginx3.2 创建ansible roles目录结构1">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/11/itW3sf.png">
+<meta property="og:updated_time" content="2018-10-11T14:58:15.745Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DInG_BloG">
-<meta name="twitter:description" content="All or nothing, Now or never.">
+<meta name="twitter:title" content="使用ansible-playbook推送安装nginx">
+<meta name="twitter:description" content="使用ansible-playbook推送安装nginx 本文主要介绍了如何将ansible-playbook投入生产中，下面我们以推送安装nginx举例  1. 思路： 现在主机上编译，配置好nginx， 然后将安装程序目录打包 最后用ansible分发下去  2. 流程图如下： 3. 执行配置过程3.1 编译安装nginx详见： 编译安装Nginx3.2 创建ansible roles目录结构1">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/10/11/itW3sf.png">
 
 
 
@@ -122,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://www.grapedlinux.cn/archives/2017/page/4/"/>
+  <link rel="canonical" href="http://www.grapedlinux.cn/2018/10/11/使用ansible-playbook推送安装nginx/"/>
 
 
 
 
 
-  <title>归档 | DInG_BloG</title>
+  <title>使用ansible-playbook推送安装nginx | DInG_BloG</title>
   
 
 
@@ -147,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,410 +303,255 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 47 篇日志。 继续努力。
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.grapedlinux.cn/2018/10/11/使用ansible-playbook推送安装nginx/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Graped">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s1.ax1x.com/2018/10/07/iGo4Cd.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DInG_BloG">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">使用ansible-playbook推送安装nginx</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-11T22:57:12+08:00">
+                2018-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/17031210/" itemprop="url">
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">nginx 禁止指定 user_agent</span>
+                <span class="post-meta-item-text">分类于</span>
               
-            </a>
-        
-      </h2>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自动化运维/" itemprop="url" rel="index">
+                    <span itemprop="name">自动化运维</span>
+                  </a>
+                </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T18:52:28+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+          
 
+          
+          
 
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/17031209/" itemprop="url">
-              
-                <span itemprop="name">nginx 配置防盗链</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T18:51:52+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <h1 id="使用ansible-playbook推送安装nginx"><a href="#使用ansible-playbook推送安装nginx" class="headerlink" title="使用ansible-playbook推送安装nginx"></a>使用ansible-playbook推送安装nginx</h1><blockquote>
+<p>本文主要介绍了如何将ansible-playbook投入生产中，下面我们以推送安装nginx举例</p>
+</blockquote>
+<h4 id="1-思路："><a href="#1-思路：" class="headerlink" title="1. 思路："></a>1. 思路：</h4><ul>
+<li>现在主机上编译，配置好nginx，</li>
+<li>然后将安装程序目录打包</li>
+<li>最后用ansible分发下去</li>
+</ul>
+<h4 id="2-流程图如下："><a href="#2-流程图如下：" class="headerlink" title="2. 流程图如下："></a>2. 流程图如下：</h4><p><img src="https://s1.ax1x.com/2018/10/11/itW3sf.png" alt="image"></p>
+<h4 id="3-执行配置过程"><a href="#3-执行配置过程" class="headerlink" title="3. 执行配置过程"></a>3. 执行配置过程</h4><h5 id="3-1-编译安装nginx详见：-编译安装Nginx"><a href="#3-1-编译安装nginx详见：-编译安装Nginx" class="headerlink" title="3.1 编译安装nginx详见： 编译安装Nginx"></a>3.1 编译安装nginx详见： <a href="http://note.youdao.com/noteshare?id=b73effc8df9b50ad2b63f8f0ed2ba676&amp;sub=0D01183B5BCA44C593B382FB2AE2FE3D" target="_blank" rel="noopener">编译安装Nginx</a></h5><h5 id="3-2-创建ansible-roles目录结构"><a href="#3-2-创建ansible-roles目录结构" class="headerlink" title="3.2 创建ansible roles目录结构"></a>3.2 创建ansible roles目录结构</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /etc/ansible/</span><br><span class="line">mkdir -pv nginx_install/rolse/&#123;common,install&#125;/&#123;handlers,files,meta,tasks,templates,vars&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>roles下有两个角色，common为一些准备操作，install为安装nginx的操作</li>
+<li>每个角色下面又有6个目录，<ul>
+<li>handlers 下面是当发生改变时，要执行的操作，通常用在配置文件发生改变，重启服务等</li>
+<li>flies 为安装时用到的一些文件</li>
+<li>meta 为说明信息，说明角色依赖等信息</li>
+<li>tasks 里面为核心配置文件</li>
+<li>templates 通常存一些配置文件，启动脚本等模板文件</li>
+<li>vars 下为定义的变量</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h5 id="3-3-将安装好的nginx程序包打包，并放到-install-files-下面，启动脚本-放入-install-templates中，"><a href="#3-3-将安装好的nginx程序包打包，并放到-install-files-下面，启动脚本-放入-install-templates中，" class="headerlink" title="3.3 将安装好的nginx程序包打包，并放到 $/install/files/ 下面，启动脚本 放入$/install/templates中，"></a>3.3 将安装好的nginx程序包打包，并放到 <code>$/install/files/</code> 下面，启动脚本 放入<code>$/install/templates</code>中，</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/init.d/nginx /root/nginx_install/rolse/install/templates/nginx</span><br><span class="line">mv nginx.tar.gz /root/nginx_install/rolse/install/files/</span><br><span class="line">cp nginx/conf/nginx.conf /root/nginx_install/rolse/install/templates/</span><br></pre></td></tr></table></figure>
+<h5 id="3-4-在common目录下定义安装nginx的依赖包任务"><a href="#3-4-在common目录下定义安装nginx的依赖包任务" class="headerlink" title="3.4 在common目录下定义安装nginx的依赖包任务"></a>3.4 在common目录下定义安装nginx的依赖包任务</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> common/tasks</span><br><span class="line">vim main.yml</span><br><span class="line"></span><br><span class="line">- name: install initaliztion require software</span><br><span class="line">  <span class="comment">#yum: name=&#123;&#123; items &#125;&#125; state=installed</span></span><br><span class="line">  yum: name=<span class="string">"pcre-devel,zlib-devel"</span></span><br><span class="line">  <span class="comment">#with_item</span></span><br><span class="line">  <span class="comment">#   - zlib-devel </span></span><br><span class="line">  <span class="comment">#   - prce-devel</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-5-定义变量"><a href="#3-5-定义变量" class="headerlink" title="3.5 定义变量"></a>3.5 定义变量</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> install/vars/main.yml</span><br><span class="line"></span><br><span class="line">nginx_user: www</span><br><span class="line">nginx_port: 80</span><br><span class="line">nginx_basedir: /usr/<span class="built_in">local</span>/nginx</span><br></pre></td></tr></table></figure>
+<h5 id="3-6-定义拷贝操作"><a href="#3-6-定义拷贝操作" class="headerlink" title="3.6 定义拷贝操作"></a>3.6 定义拷贝操作</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim  install/tasks/copy.yml</span><br><span class="line"></span><br><span class="line">- name: Copy Nginx Software</span><br><span class="line">  copy: src=nginx.tar.gz dest=/tmp/nginx.tar.gz owner=root group=root</span><br><span class="line">- name: Uncommpreesion Nginx Software</span><br><span class="line">  shell: tar -zxf /tmp/nginx.tar.gz -C /usr/<span class="built_in">local</span></span><br><span class="line">- name: Copy Nginx Start Scrpit</span><br><span class="line">  template: src=nginx dest=/etc/init.d/nginx owner=root group=root mode=0755</span><br><span class="line">- name: Copy Nginx Config</span><br><span class="line">  template: src=nginx.conf dest=&#123;&#123; nginx_basedir &#125;&#125;/conf/ owner=root group=root mode=0644</span><br></pre></td></tr></table></figure>
+<h5 id="3-7-创建安装总线"><a href="#3-7-创建安装总线" class="headerlink" title="3.7 创建安装总线"></a>3.7 创建安装总线</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim install/tasks/install.yml </span><br><span class="line"> </span><br><span class="line">- name: Creat Nginx User </span><br><span class="line">  user: name=&#123;&#123; nginx_user &#125;&#125; state=present createhome=no shell=/sbin/nologin</span><br><span class="line">- name: Start Nginx Service </span><br><span class="line">  shell: /etc/init.d/nginx start</span><br><span class="line">- name: Add Boot Start Nginx Service</span><br><span class="line">  shell: chkconfig --level 345 nginx on</span><br><span class="line">- name : Delete Nginx Commpression files</span><br><span class="line">  shell: mv /tmp/nginx.tar.gz /tmp/old.tgz</span><br></pre></td></tr></table></figure>
+<h5 id="3-8-创建执行总线"><a href="#3-8-创建执行总线" class="headerlink" title="3.8 创建执行总线"></a>3.8 创建执行总线</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim install/tasks/main.yml</span><br><span class="line"></span><br><span class="line">- include: copy.yml</span><br><span class="line">- include: install.yml</span><br></pre></td></tr></table></figure>
+<h5 id="3-9-创建入口配置文件"><a href="#3-9-创建入口配置文件" class="headerlink" title="3.9 创建入口配置文件"></a>3.9 创建入口配置文件</h5><pre><code class="bash">vim install.yml
 
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/17031208/" itemprop="url">
-              
-                <span itemprop="name">nginx 配置静态文件过期时间</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T18:51:15+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+---
+- hosts: nginxlabs
+  remote_user: root
+  gather_facts: True
+  roles:
+    - common
+    - install
+</code></pre>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/17031207/" itemprop="url">
-              
-                <span itemprop="name">nginx日志切割</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T18:49:05+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/17031206/" itemprop="url">
-              
-                <span itemprop="name">nginx 不记录指定文件类型的日志</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T18:48:23+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/17031205/" itemprop="url">
-              
-                <span itemprop="name">nginx域名跳转</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T18:46:14+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/17031204/" itemprop="url">
-              
-                <span itemprop="name">nginx 用户认证</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T18:45:32+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/17031203/" itemprop="url">
-              
-                <span itemprop="name">常见的 502 问题解决</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T18:38:51+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/17031202/" itemprop="url">
-              
-                <span itemprop="name">测试PHP解析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T18:33:22+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/17031201/" itemprop="url">
-              
-                <span itemprop="name">Nginx编译安装</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T18:31:48+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+	
+	<div>
+  	
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束❤感谢您的阅读-------------</div>
+    
+</div>
+  	
+	</div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Graped
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.grapedlinux.cn/2018/10/11/使用ansible-playbook推送安装nginx/" title="使用ansible-playbook推送安装nginx">http://www.grapedlinux.cn/2018/10/11/使用ansible-playbook推送安装nginx/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ansible/" rel="tag"><i class="fa fa-tag"></i> ansible</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/08/Ansible介绍/" rel="next" title="Ansible详解">
+                <i class="fa fa-chevron-left"></i> Ansible详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2017/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/2017/page/5/">5</a><a class="extend next" rel="next" href="/archives/2017/page/5/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -710,6 +559,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -730,8 +583,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -830,6 +692,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用ansible-playbook推送安装nginx"><span class="nav-number">1.</span> <span class="nav-text">使用ansible-playbook推送安装nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-思路："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1. 思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-流程图如下："><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2. 流程图如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-执行配置过程"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3. 执行配置过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-编译安装nginx详见：-编译安装Nginx"><span class="nav-number">1.0.0.3.1.</span> <span class="nav-text">3.1 编译安装nginx详见： 编译安装Nginx</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-创建ansible-roles目录结构"><span class="nav-number">1.0.0.3.2.</span> <span class="nav-text">3.2 创建ansible roles目录结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-将安装好的nginx程序包打包，并放到-install-files-下面，启动脚本-放入-install-templates中，"><span class="nav-number">1.0.0.3.3.</span> <span class="nav-text">3.3 将安装好的nginx程序包打包，并放到 $/install/files/ 下面，启动脚本 放入$/install/templates中，</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-在common目录下定义安装nginx的依赖包任务"><span class="nav-number">1.0.0.3.4.</span> <span class="nav-text">3.4 在common目录下定义安装nginx的依赖包任务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-定义变量"><span class="nav-number">1.0.0.3.5.</span> <span class="nav-text">3.5 定义变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-6-定义拷贝操作"><span class="nav-number">1.0.0.3.6.</span> <span class="nav-text">3.6 定义拷贝操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-7-创建安装总线"><span class="nav-number">1.0.0.3.7.</span> <span class="nav-text">3.7 创建安装总线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-8-创建执行总线"><span class="nav-number">1.0.0.3.8.</span> <span class="nav-text">3.8 创建执行总线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-9-创建入口配置文件"><span class="nav-number">1.0.0.3.9.</span> <span class="nav-text">3.9 创建入口配置文件</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -992,6 +870,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
